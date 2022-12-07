@@ -18,9 +18,20 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function() {
-    return view('/auth/login');
+    return view('/auth/login', [
+        'title' => 'Login Page'
+    ]);
 });
 
+// Route::get('/login', [LoginController::class, 'index']);
+
 Route::get('/register', function() {
-    return view('/auth/register');
+    return view('/auth/register', [
+        'title' => 'Register Page'
+    ]);
 });
+
+Route::get('/admin', function() {
+    return view('admin.index');
+});
+// Route::get('/admin', [AdminController::class, 'index']);
