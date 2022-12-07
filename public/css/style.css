@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {font-size: 5.313rem;font-weight: 600;}
+h2 {font-size: 4rem; font-weight: 600;}
+h3 {font-size: 2.375rem;font-weight: 600;}
+h4 {font-size: 1.5rem;font-weight: 600;}
+h5 {font-size: 1.125rem;font-weight: 600;}
+h6 {font-size: 0.938rem;font-weight: 600;}
+
+/* Login Page */
+.login {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(img/bg-login.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login .u-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 25px rgba(255, 85, 60, .50);
+}
+
+.login .card-img-container {
+    padding: 0!important;
+}
+
+.login form label {
+    display: inline-block;
+    letter-spacing: .5px;
+    font-weight: 400;
+    color: #333;
+}
+
+.login form input {
+    display: block;
+    border: none;
+    letter-spacing: .5px;
+    background-color: transparent;
+    border-bottom: 1px solid #FF553C;
+    width: 100%;
+}
+
+.login form input:focus {
+    outline: none;
+    border-bottom: 1px solid #3D6DEF;
+    transition: .4s;
+}
+
+.login .btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login form button {
+    padding: .5rem 5rem;
+    background-color: transparent;
+    color: #FF553C;
+    font-size: 1rem;
+    border: 1px solid #FF553C;
+}
+
+.login .card-text-container p > a{
+    color: #FF553C;
+    text-decoration: none;
+}
+/* End Login Page */
+
+/* Register Page */
+.register {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(img/bg-login.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.register .u-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 25px rgba(255, 85, 60, .50);
+}
+
+.register .card-img-container {
+    padding: 0!important;
+}
+
+.register form label {
+    display: inline-block;
+    letter-spacing: .5px;
+    font-weight: 400;
+    color: #333;
+}
+
+.register form input {
+    display: block;
+    border: none;
+    letter-spacing: .5px;
+    background-color: transparent;
+    border-bottom: 1px solid #FF553C;
+    width: 100%;
+}
+
+.register form input:focus {
+    outline: none;
+    border-bottom: 1px solid #3D6DEF;
+    transition: .4s;
+}
+
+.register .btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.register form button {
+    padding: .5rem 5rem;
+    background-color: transparent;
+    color: #FF553C;
+    font-size: 1rem;
+    border: 1px solid #FF553C;
+}
+
+.register .card-text-container p > a{
+    color: #FF553C;
+    text-decoration: none;
+}
+/* End Register Page */
+.nav-user .text-logo {
+    margin-left: .6rem;
+    color: #333;
+}
+
+.nav-user .nav-item {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.nav-user .nav-item .active {
+    color: #FF553C;
+}
+
+.nav-user .nav-item > a:hover {
+    color: #FF553C;
+}
+
+.nav-user .nav-item > a{
+    font-size: 0.938rem;
+    color: #333;
+}
+
+.nav-user .outer {
+    border: 1px solid #FF553C;
+    border-radius: 3px;
+    padding: 0rem .2rem;
+}
+
+.nav-user .right-nav a {
+    color: #333;
+}
+
+.index .bg-container {
+    background-image: url("img/bg-container.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.index .row-banner {
+    min-height: 75vh;
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .login .u-card {
+        border-radius: 0px;
+    }
+    .register .u-card {
+        border-radius: 0px;
+    }
+}
