@@ -32,6 +32,13 @@ Route::get('/register', function() {
 });
 
 Route::get('/admin', function() {
-    return view('admin.index');
+    return view('admin.index', [
+        'active' => 'dashboard'
+    ]);
 });
-// Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/admin/spesialis', function() {
+    return view('admin.spesialis', [
+        'active' => 'spesialis'
+    ]);
+});

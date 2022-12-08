@@ -9,11 +9,12 @@
                 </div>
                 <div class="col-lg-6 px-5 card-text-container">
                     <h2 class="text-center mt-5">Login</h2>
-                    <form class="mt-5" action="">
+                    <form class="mt-5" action="/login" method="POST">
+                        @csrf
                         <label class="mb-2" for="username">Username</label>
-                        <input class="mb-3" type="text" id="username">
+                        <input class="mb-3" type="text" name="username" id="username">
                         <label class="mb-2" for="password">Password</label>
-                        <input class="mb-3" type="password" id="password">
+                        <input class="mb-3" type="password" name="password" id="password">
                         <div class="btn-container mt-5">
                             <button type="submit">Log In</button>
                         </div>
