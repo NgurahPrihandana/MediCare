@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -19,6 +20,13 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Sweet Alert-->
+    {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
+
 
 </head>
 
@@ -53,6 +61,32 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
+                Account
+            </div>
+
+            <li class="nav-item {{ $active === 'doctor' ? 'active' : '' }}">
+                <a class="nav-link" href="/admin/doctor">
+                    <i class="fas fa-fw fa-user-md"></i>
+                    <span>Doctor</span></a>
+            </li>
+
+            <li class="nav-item {{ $active === 'worker' ? 'active' : '' }}">
+                <a class="nav-link" href="/admin/worker">
+                    <i class="fas fa-fw fa-user-md"></i>
+                    <span>Worker</span></a>
+            </li>
+
+            <li class="nav-item {{ $active === 'user' ? 'active' : '' }}">
+                <a class="nav-link" href="/admin/user">
+                    <i class="fas fa-fw fa-user-md"></i>
+                    <span>User</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
                 Interface
             </div>
 
@@ -60,6 +94,12 @@
                 <a class="nav-link" href="/admin/spesialis">
                     <i class="fas fa-fw fa-user-md"></i>
                     <span>Spesialis</span></a>
+            </li>
+
+            <li class="nav-item {{ $active === 'registrasi' ? 'active' : '' }}">
+                <a class="nav-link" href="/admin/registrasi">
+                    <i class="fas fa-fw fa-user-md"></i>
+                    <span>Registrasi</span></a>
             </li>
 
             <!-- Divider -->
@@ -218,13 +258,18 @@
     <!-- Custom scripts for all pages-->
     <script src="/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="/vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level plugins - Table -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="sweetalert2.min.js"></script> --}}
 
     <!-- Page level custom scripts -->
-    <script src="/js/demo/chart-area-demo.js"></script>
-    <script src="/js/demo/chart-pie-demo.js"></script>
+    <script src="/js/demo/datatables-demo.js"></script>
 
+    @stack('scripts')
 </body>
 
 </html>

@@ -17,7 +17,7 @@ h6 {font-size: 0.938rem;font-weight: 600;}
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background-image: url(img/bg-login.png);
+    background-image: url(/img/bg-login.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -78,7 +78,7 @@ h6 {font-size: 0.938rem;font-weight: 600;}
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background-image: url(img/bg-login.png);
+    background-image: url(/img/bg-login.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -167,7 +167,7 @@ h6 {font-size: 0.938rem;font-weight: 600;}
 }
 
 .index .bg-container {
-    background-image: url("img/bg-container.png");
+    background-image: url("/img/bg-container.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
