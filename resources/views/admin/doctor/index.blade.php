@@ -2,17 +2,17 @@
 
 @section('page-heading')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Spesialis</h1>
+    <h1 class="h3 mb-0 text-gray-800">Dokter</h1>
 </div>
 @endsection
 
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
-        <h6 class="m-0 font-weight-bold text-danger">Tabel Data Spesialis</h6>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        <h6 class="m-0 font-weight-bold text-danger">Tabel Data Dokter</h6>
+        <a type="button" class="btn btn-danger" href="{{url('/admin/doctor/create')}}">
             Tambah Data
-        </button>
+        </a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -20,25 +20,33 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Spesialis</th>
+                        <th>Nama Dokter</th>
+                        <th>Nomor Telepon</th>
+                        <th>Alamat Dokter</th>
+                        <th>Email</th>
+                        <th>Spesialis</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>Nama Spesialis</th>
+                        <th>Nama Dokter</th>
+                        <th>Nomor Telepon</th>
+                        <th>Alamat Dokter</th>
+                        <th>Email</th>
+                        <th>Spesialis</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
-                <tbody>
+                {{-- <tbody>
                     <?php $i = 1?>
                     @foreach ($data_spesialis as $item)
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{$item->nama_spesialis}}</td>
                         <td>
-                            <a href="{{url('/admin/spesialis/edit')}}/{{$item->id}}" class="btn btn-success btn-icon-split">
+                            <a href="#" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-info"></i>
                             </span>
@@ -54,39 +62,13 @@
                     </tr>
                     <?php $i++ ?>
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table>
         </div>
     </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Form Tambah Spesialis</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form action="/admin/spesialis" method="POST">
-        @csrf
-        <div class="modal-body">
-                <div class="mb-3">
-                  <label for="nama_spesialis" class="form-label">Nama Spesialis</label>
-                  <input type="text" name="nama_spesialis" class="form-control" id="nama_spesialis" aria-describedby="emailHelp">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                {{-- <button type="submit" class="btn btn-primary">Tambah</button> --}}
-                <a onclick="store()" href="javascript:void(0)" class="btn btn-primary">Tambah Data</a>
-            </div>
-        </form>
-      </div>
-    </div>
-  </div>
 @endsection
 
 @push('scripts')
@@ -116,11 +98,12 @@
             }
             });
             $.ajax({
-            url:"{{url('/admin/spesialis')}}/"+id,
+            url:"/admin/spesialis/"+id,
             type:"DELETE",
 
             data:{
-                _token:"{{csrf_token()}}"
+                _token:"{{csrf_token()}}",
+                id:id
             },
             success:function(response) {
                 Swal.fire(
@@ -137,7 +120,7 @@
                 'Data Gagal Dihapus',
                 'error'
                 ).then(function() {
-                    // location.reload();
+                    location.reload();
                 });
             }
 
@@ -176,7 +159,7 @@
             }
             });
             $.ajax({
-            url:"{{url('/admin/spesialis')}}",
+            url:"/admin/spesialis",
             type:"POST",
 
             data:{

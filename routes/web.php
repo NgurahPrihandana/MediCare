@@ -2,6 +2,7 @@
 
 use App\Models\Spesialis;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SpesialisController;
 
 
@@ -40,6 +41,7 @@ Route::get('/register', function() {
 //     ]);
 // });
 Route::prefix('admin')->group(function () {
+
     Route::get('/', function() {
         return view('admin.index', [
             'active' => 'dashboard'
@@ -54,6 +56,20 @@ Route::prefix('admin')->group(function () {
     });
     Route::post('/spesialis', [SpesialisController::class,'store'])->name("spesialis.store");
     Route::delete('/spesialis/{id}', [SpesialisController::class,'delete'])->name("spesialis.delete");
+    Route::get('/spesialis/edit/{id}', [SpesialisController::class,'edit'])->name("spesialis.edit");
+    Route::put('/spesialis/edit/{id}', [SpesialisController::class,'update'])->name("spesialis.update");
+    Route::post('/spesialis/edit/{id}', [SpesialisController::class,'update'])->name("spesialis.update");
+
+    Route::get('/doctor', function() {
+        $data_doctor = "a";
+        return view('admin.doctor.index', [
+            'active' => 'doctor',
+            'data_doctor' => $data_doctor
+        ]);
+    });
+
+    Route::get('/doctor/create' , [DoctorController::class,'create']);
 });
+
 
 // Route::get('/admin/spesialis', [SpesialisController::class,'index']);

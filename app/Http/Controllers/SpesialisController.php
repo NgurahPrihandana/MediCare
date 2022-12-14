@@ -26,8 +26,29 @@ class SpesialisController extends Controller
         return response()->json($response);
     }
 
-    public function delete(Request $request) {
-        if(Spesialis::destroy($request->id)) {
+    public function delete($id) {
+        if(Spesialis::destroy($id)) {
+            $response = [array('msg'=> "Sukses"), 200];
+        } else {
+            $response = [array('msg'=> "Gagal"), 500];
+        }
+        return response()->json($response);
+    }
+
+    public function edit($id)
+    {
+        $data_spesialis = Spesialis::find($id);
+        return view('admin.spesialis.edit', [
+            'active' => 'spesialis',
+            'data_spesialis' => $data_spesialis,
+            'id_spesialis' => $id
+        ]);
+    }
+
+    public function update(Request $request, $id) {
+        $spesialis = Spesialis::find($id);
+        $spesialis->nama_spesialis = $request->nama_spesialis;
+        if($spesialis->save()) {
             $response = [array('msg'=> "Sukses"), 200];
         } else {
             $response = [array('msg'=> "Gagal"), 500];
