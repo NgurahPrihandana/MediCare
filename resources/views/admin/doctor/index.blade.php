@@ -39,20 +39,24 @@
                         <th>Action</th>
                     </tr>
                 </tfoot>
-                {{-- <tbody>
+                <tbody>
                     <?php $i = 1?>
-                    @foreach ($data_spesialis as $item)
+                    @foreach ($data_doctor as $item)
                     <tr>
                         <td>{{ $i }}</td>
+                        <td>{{$item->nama}}</td>
+                        <td>{{$item->nomor_telepon}}</td>
+                        <td>{{$item->alamat}}</td>
+                        <td>{{$item->email}}</td>
                         <td>{{$item->nama_spesialis}}</td>
                         <td>
-                            <a href="#" class="btn btn-success btn-icon-split">
+                            <a href="{{url('/admin/doctor/edit')}}/{{$item->doctor_id}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-info"></i>
                             </span>
                             <span class="text">Edit</span>
                             </a>
-                            <a href="javascript:void(0)" onclick="del({{$item->id}})" class="btn btn-danger btn-icon-split">
+                            <a href="javascript:void(0)" onclick="del({{$item->doctor_id}})" class="btn btn-danger btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-trash"></i>
                                 </span>
@@ -62,7 +66,7 @@
                     </tr>
                     <?php $i++ ?>
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table>
         </div>
     </div>
@@ -98,27 +102,26 @@
             }
             });
             $.ajax({
-            url:"/admin/spesialis/"+id,
+            url:"{{url('/admin/doctor')}}/"+id,
             type:"DELETE",
 
             data:{
                 _token:"{{csrf_token()}}",
-                id:id
             },
             success:function(response) {
                 Swal.fire(
-                'Success',
-                'Data Berhasil Dihapus',
-                'success'
+                response[0]['title'],
+                response[0]['msg'],
+                response[0]['type']
                 ).then(function() {
                     location.reload();
                 });
             },
-            error:function(){
+            error:function(response){
                 Swal.fire(
-                'Gagal',
-                'Data Gagal Dihapus',
-                'error'
+                response[0]['title'],
+                response[0]['msg'],
+                response[0]['type']
                 ).then(function() {
                     location.reload();
                 });
@@ -168,18 +171,18 @@
             },
             success:function(response) {
                 Swal.fire(
-                'Success',
-                'Data Berhasil Ditambahkan',
-                'success'
+                response[0]['title'],
+                response[0]['msg'],
+                response[0]['type']
                 ).then(function() {
                     location.reload();
                 });
             },
-            error:function(){
+            error:function(response){
                 Swal.fire(
-                'Gagal',
-                'Data Gagal Ditambahkan',
-                'error'
+                response[0]['title'],
+                response[0]['msg'],
+                response[0]['type']
                 ).then(function() {
                     location.reload();
                 });
