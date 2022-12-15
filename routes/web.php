@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Spesialis;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SpesialisController;
 
@@ -72,13 +74,26 @@ Route::prefix('admin')->group(function () {
             'data_doctor' => $data_doctor
         ]);
     });
-
     Route::get('/doctor/create' , [DoctorController::class,'create']);
     Route::post('/doctor/store' , [DoctorController::class,'store']);
     Route::delete('/doctor/{id}', [DoctorController::class,'delete'])->name("doctor.delete");
     Route::get('/doctor/edit/{id}', [DoctorController::class,'edit'])->name("doctor.edit");
     Route::put('/doctor/edit/{id}', [DoctorController::class,'update'])->name("doctor.update");
     Route::post('/doctor/edit/{id}', [DoctorController::class,'update'])->name("doctor.update");
+
+    Route::get('/user', function() {
+        $data_user = User::all();
+
+        return view('admin.user.index', [
+            'active' => 'user',
+            'data_user' => $data_user
+        ]);
+    });
+    Route::get('/user/create' , [UserController::class,'create']);
+    Route::post('/user/store' , [UserController::class,'store']);
+    Route::delete('/user/{id}', [UserController::class,'delete']);
+    Route::get('/user/edit/{id}', [UserController::class,'edit']);
+    Route::put('/user/edit/{id}', [UserController::class,'update']);
 });
 
 

@@ -70,12 +70,6 @@
                     <span>Doctor</span></a>
             </li>
 
-            <li class="nav-item {{ $active === 'worker' ? 'active' : '' }}">
-                <a class="nav-link" href="/admin/worker">
-                    <i class="fas fa-fw fa-user-md"></i>
-                    <span>Worker</span></a>
-            </li>
-
             <li class="nav-item {{ $active === 'user' ? 'active' : '' }}">
                 <a class="nav-link" href="/admin/user">
                     <i class="fas fa-fw fa-user-md"></i>
@@ -170,14 +164,6 @@
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
