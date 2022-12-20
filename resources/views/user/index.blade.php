@@ -53,8 +53,8 @@
     <div class="bg-container">
       <div class="container">
           <div class="row row-banner d-flex align-items-center">
-            <div class="col-lg-6">
-              <img src="img/doctor-image2.png" width="100%" alt="">
+            <div class="col-lg-6 col-md-12 banner-img">
+              <img src="img/doctor-image2.png" alt="">
             </div>
             <div class="col-lg-6">
               <div class="mini-logo">

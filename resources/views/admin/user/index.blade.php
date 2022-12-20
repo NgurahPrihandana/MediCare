@@ -9,7 +9,7 @@
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
-        <h6 class="m-0 font-weight-bold text-danger">Tabel Data Dokter</h6>
+        <h6 class="m-0 font-weight-bold text-danger">Tabel Data User</h6>
         <a type="button" class="btn btn-danger" href="{{url('/admin/user/create')}}">
             Tambah Data
         </a>

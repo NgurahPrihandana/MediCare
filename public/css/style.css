@@ -175,6 +175,26 @@ h6 {font-size: 0.938rem;font-weight: 600;}
 .index .row-banner {
     min-height: 75vh;
     margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.index .row-banner .banner-img img {
+    /* margin-left: -200px; */
+    position: absolute;
+    height: 100%;
+    left: -160px;
+    bottom: -80px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .index .row-banner .banner-img {
+        display: none;
+    }
+
+    .index .row-banner .h2 {
+        text-align: center;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -183,5 +203,8 @@ h6 {font-size: 0.938rem;font-weight: 600;}
     }
     .register .u-card {
         border-radius: 0px;
+    }
+    .index .row-banner .banner-img {
+        display: none;
     }
 }
