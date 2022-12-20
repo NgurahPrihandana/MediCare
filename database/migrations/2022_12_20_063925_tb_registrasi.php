@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('registrasi', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('password');
+            $table->string('nama_lengkap');
+            $table->string('nomor_telepon');
+            $table->time('tanggal_lahir');
+            $table->string('dokter');
+            $table->time('tanggal_booking');
             $table->timestamps();
         });
     }
