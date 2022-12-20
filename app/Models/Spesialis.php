@@ -11,5 +11,7 @@ class Spesialis extends Model
         'nama_spesialis'
     ];
 
+    protected $table = 'tb_spesialis';
+
     use HasFactory;
 }

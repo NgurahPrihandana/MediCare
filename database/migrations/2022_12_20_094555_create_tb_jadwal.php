@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spesialis', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_spesialis');
+        Schema::create('tb_jadwal', function (Blueprint $table) {
+            $table->bigIncrements('id_jadwal');
+            $table->string('hari',10);
+            $table->time('waktu_awal');
+            $table->time('waktu_akhir');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spesialis');
+        Schema::dropIfExists('tb_jadwal');
     }
 };

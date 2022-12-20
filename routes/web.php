@@ -21,8 +21,16 @@ use App\Http\Controllers\SpesialisController;
 |
 */
 
+Route::prefix('user')->group(function () {
+    Route::get('/', function() {
+        return view('user.index', [
+            'title' => 'Register Page'
+        ]);
+    });
+});
+
 Route::get('/', function () {
-    return view('user.index');
+    return view('index');
 });
 
 Route::get('/login', function() {
@@ -65,7 +73,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/spesialis/edit/{id}', [SpesialisController::class,'update'])->name("spesialis.update");
 
     Route::get('/doctor', function() {
-        $data_doctor = DB::table('doctors')
+        $data_doctor = DB::table('tb_doctors')
         ->join('spesialis', 'doctors.id_spesialis', '=', 'spesialis.id')
         ->get();
 

@@ -20,6 +20,6 @@ class Doctor extends Model
 
     use HasFactory;
 
-    protected $table = 'doctors';
+    protected $table = 'tb_doctors';
     protected $primaryKey = 'doctor_id';
 }
