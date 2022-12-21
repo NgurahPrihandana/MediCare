@@ -238,6 +238,36 @@ h6 {font-size: 0.938rem;font-weight: 600;}
 
 }
 
+.contact .bg-container {
+    background-image: url("/img/bg-container.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contact .row-banner {
+    min-height: 75vh;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact .row-banner .banner-img img {
+    /* margin-left: -200px; */
+    position: absolute;
+    height: 100%;
+    left: -160px;
+    bottom: -80px;
+}
+
+.contact .card-contact {
+    width: 100%;
+    transition: all .5s;
+    border: 1px solid #FF553C; 
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    padding: 3rem;
+}
+
 @media only screen and (max-width: 1200px) {
     .index .row-banner .banner-img {
         display: none;
