@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SpesialisController;
 
 
@@ -24,10 +25,16 @@ use App\Http\Controllers\SpesialisController;
 
 Route::prefix('user')->group(function () {
     Route::get('/', function() {
-        return view('user.index');
+        return view('user.index',[
+            'active' => "dashboard"
+        ]);
     });
 
-    
+    Route::get('/jadwal', [JadwalController::class,'index']);
+});
+
+Route::get('/contact', function() {
+    return view('contact');
 });
 
 Route::get('/', function () {
@@ -54,7 +61,7 @@ Route::prefix('admin')->group(function () {
         return view('admin.index', [
             'active' => 'dashboard'
         ]);
-    });
+    })->name("admin");
     Route::get('/spesialis', function() {
         $data_spesialis = Spesialis::all();
         return view('admin.spesialis', [
@@ -70,7 +77,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/doctor', function() {
         $data_doctor = DB::table('tb_doctors')
-        ->join('spesialis', 'doctors.id_spesialis', '=', 'spesialis.id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id')
         ->get();
 
         return view('admin.doctor.index', [

@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('tb_jadwal', function (Blueprint $table) {
             $table->bigIncrements('id_jadwal');
             $table->string('hari',10);
-            $table->time('waktu_awal');
-            $table->time('waktu_akhir');
             $table->timestamps();
         });
     }

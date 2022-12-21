@@ -37,8 +37,8 @@ class DoctorController extends Controller
 
     public function edit($id)
     {
-        $data_doctor = DB::table('doctors')
-        ->join('spesialis', 'doctors.id_spesialis', '=', 'spesialis.id')
+        $data_doctor = DB::table('tb_doctors')
+        ->join('tb_spesialis', 'doctors.id_spesialis', '=', 'tb_spesialis.id')
         ->where('doctor_id', '=', $id)
         ->first();
         $data_spesialis = Spesialis::all();

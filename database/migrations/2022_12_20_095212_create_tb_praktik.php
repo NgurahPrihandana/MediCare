@@ -17,6 +17,8 @@ return new class extends Migration
             $table->bigIncrements('id_praktik');
             $table->unsignedBigInteger('id_jadwal');
             $table->unsignedBigInteger('doctor_id');
+            $table->time('waktu_awal');
+            $table->time('waktu_akhir');
             $table->timestamps();
         });
 
