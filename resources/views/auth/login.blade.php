@@ -11,8 +11,8 @@
                     <h2 class="text-center mt-5">Login</h2>
                     <form class="mt-5" action="/login" method="POST">
                         @csrf
-                        <label class="mb-2" for="username">Username</label>
-                        <input class="mb-3" type="text" name="username" id="username">
+                        <label class="mb-2" for="email">Email</label>
+                        <input class="mb-3" type="text" name="email" id="email">
                         <label class="mb-2" for="password">Password</label>
                         <input class="mb-3" type="password" name="password" id="password">
                         <div class="btn-container mt-5">

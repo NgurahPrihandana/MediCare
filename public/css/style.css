@@ -157,9 +157,12 @@ h6 {font-size: 0.938rem;font-weight: 600;}
 }
 
 .nav-user .outer {
-    border: 1px solid #FF553C;
-    border-radius: 3px;
-    padding: 0rem .2rem;
+    /* border: 1px solid #FF553C; */
+    padding: 0 10px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #acacac,
+             -20px -20px 60px #ffffff;
 }
 
 .nav-user .right-nav a {

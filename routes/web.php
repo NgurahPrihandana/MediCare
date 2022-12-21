@@ -5,6 +5,7 @@ use App\Models\Doctor;
 use App\Models\Spesialis;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SpesialisController;
@@ -23,23 +24,18 @@ use App\Http\Controllers\SpesialisController;
 
 Route::prefix('user')->group(function () {
     Route::get('/', function() {
-        return view('user.index', [
-            'title' => 'Register Page'
-        ]);
+        return view('user.index');
     });
+
+    
 });
 
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function() {
-    return view('auth.login', [
-        'title' => 'Login Page'
-    ]);
-});
-
-// Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [AuthController::class,'index']);
+Route::post('/login', [AuthController::class,'authenticate']);
 
 Route::get('/register', function() {
     return view('auth.register', [

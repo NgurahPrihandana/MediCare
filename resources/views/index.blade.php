@@ -37,7 +37,7 @@
               <div class="outer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="img/user-icon.png" width="20px" alt="">
                 <a class="nav-link d-inline-block" href="#" >
-                  <span class="username">Prihandana</span>
+                  <span class="username">Login</span>
                 </a>
               </div>
               <ul class="dropdown-menu">
@@ -77,13 +77,13 @@
         <div class="col-lg-6">
           <div class="row">
             <div class="col-lg-6">
-              <img src="" alt="">
+              <img src="img/collage1.png" width="100%" alt="">
             </div>
             <div class="col-lg-6">
-              <img src="" alt="">
+              <img src="img/collage2.png" width="100%" alt="">
             </div>
-            <div class="col-lg-12">
-              <img src="" alt="">
+            <div class="col-lg-12 mt-3">
+              <img src="img/collage3.png" width="100%" alt="">
             </div>
           </div>
         </div>
@@ -95,27 +95,34 @@
             MediCare had experiences to handling patients for more than 10 years. There are some reasons why we become trusted medical website. 
           </p>
           <div class="row mt-5">
-            <div class="col-lg-6">
-              <img class="d-block" src="" alt="">
+            <div class="col-lg-6 mt-5">
+              <img class="d-block" src="img/collage-icon1.png" alt="">
               <h5>Experienced Doctors</h5>
               <p>MediCare consist of experienced doctors to serving patients </p>
             </div>
-            <div class="col-lg-6">
-              <img class="d-block" src="" alt="">
+            <div class="col-lg-6 mt-5">
+              <img class="d-block" src="img/collage-icon2.png" alt="">
               <h5>Advanced Healthcare</h5>
               <p>MediCare offers advanced and up-to-date healthcare to boost patient’s health</p>
             </div>
-            <div class="col-lg-6">
-              <img class="d-block" src="" alt="">
+            <div class="col-lg-6 mt-5">
+              <img class="d-block" src="img/collage-icon3.png" alt="">
               <h5>Fast and Modern Service</h5>
               <p>MediCare use service based on technology to serving patients</p>
             </div>
-            <div class="col-lg-6">
-              <img class="d-block" src="" alt="">
+            <div class="col-lg-6 mt-5">
+              <img class="d-block" src="img/collage-icon4.png" alt="">
               <h5>Cheap and Premium</h5>
               <p>Even though MediCare offering a lot of modern, fast, and trusted feature, Medicare is still pocket safe!  </p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="contact-container">
+          
         </div>
       </div>
     </div>
