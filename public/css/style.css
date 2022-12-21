@@ -190,6 +190,54 @@ h6 {font-size: 0.938rem;font-weight: 600;}
     bottom: -80px;
 }
 
+.index .card-doctor {
+    width: 100%;
+    transition: all .5s;
+    border: 1px solid #FF553C; 
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.index .card-doctor:hover {
+    transition: all .5s;
+    cursor: pointer;
+    box-shadow: rgba(197, 112, 72, 0.2) 0px 8px 24px;
+}
+
+.index .card-contact {
+    width: 100%;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #FF553C; fill: #FF553C;
+    padding: 2rem;
+}
+
+.index .btn-contact-us {
+    border: 1px solid red;
+    text-decoration: none;
+    color: #FF553C;
+    padding: .5rem 2rem;
+    transition: all .5s;
+    letter-spacing: 1.3px;
+}
+
+.index .btn-contact-us:hover {
+    cursor: pointer;
+    transition: all .5s;
+    box-shadow: rgba(197, 112, 72, 0.2) 0px 8px 24px;
+}
+
+.index .footer {
+    width: 100%;
+    min-height: 10rem;
+    border: 1px #333333;
+    background-color: #333333;
+    color: white;
+    flex: auto;
+}
+
 @media only screen and (max-width: 1200px) {
     .index .row-banner .banner-img {
         display: none;
