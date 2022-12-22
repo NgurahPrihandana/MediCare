@@ -41,6 +41,13 @@
               <label for="alamat" class="form-label">Alamat</label>
               <input type="text" class="form-control" value="{{$data_user->alamat}}" id="alamat">
             </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Role</label>
+              <select class="form-control form-select-lg mb-3" id="role" aria-label=".form-select-lg example">
+                <option name="role" value="user" {{ $data_user->role === "user" ? 'selected' : '' }} >User</option>
+                <option name="role" value="admin" {{ $data_user->role === "admin" ? 'selected' : '' }}>Admin</option>
+              </select>
+            </div>
             <a href="{{url('/admin/user')}}" class="btn btn-success">Back</a>
             <a onclick="edit({{$data_user->id}})" href="javascript:void(0)" class="btn btn-primary">Edit Data</a>
         </form>
@@ -89,6 +96,7 @@
                 username:$("#username").val(),
                 old_password:$("#old_password").val(),
                 password:$("#password").val(),
+                role:$("#role").find(":selected").val(),
                 alamat:$("#alamat").val(),
             },
             success:function(response) {

@@ -37,6 +37,13 @@
               <label for="alamat" class="form-label">Alamat</label>
               <input type="text" class="form-control" id="alamat">
             </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Role</label>
+              <select class="form-control form-select-lg mb-3" id="role" aria-label=".form-select-lg example">
+                <option name="role" value="user">User</option>
+                <option name="role" value="admin" >Admin</option>
+              </select>
+            </div>
             <a href="{{url('/admin/user')}}" class="btn btn-success">Back</a>
             <a onclick="store()" href="javascript:void(0)" class="btn btn-primary">Tambah Data</a>
         </form>
@@ -84,6 +91,7 @@
                 email:$("#email").val(),
                 username:$("#username").val(),
                 password:$("#password").val(),
+                role:$("#role").find(":selected").val(),
                 alamat:$("#alamat").val(),
             },
             success:function(response) {

@@ -133,13 +133,6 @@
                 <li class="nav-divider">Features</li>
                 <li class="nav-item">
                   <a
-                    class="nav-link {{ $active === 'registrasi' ? 'active' : '' }}"
-                    href="{{url('/user/registrasi')}}"
-                    ><i class="fas fa-fw fa-file"></i> Registrasi
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
                     class="nav-link {{ $active === 'daftar-registrasi' ? 'active' : '' }}"
                     href="{{url('/user/daftar')}}"
                     ><i class="fas fa-fw fa-inbox"></i> Daftar Registrasi

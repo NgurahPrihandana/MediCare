@@ -21,6 +21,7 @@ class UserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'role' => $request->role,
             'alamat' => $request->alamat
         ])) {
             $response = [array('title' => "Success", 'msg'=> "Data Berhasil Ditambahkan",'type' => 'success'), 200];
@@ -53,6 +54,7 @@ class UserController extends Controller
             }
         }
         $user->alamat = $request->alamat;
+        $user->role = $request->role;
         if($user->save()) {
             $response = [array('title' => "Success", 'msg'=> "Data Berhasil Dirubah",'type' => 'success'), 200];
         } else {

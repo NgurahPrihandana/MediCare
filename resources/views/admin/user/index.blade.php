@@ -25,6 +25,7 @@
                         <th>Username</th>
                         <th>Nomor Telepon</th>
                         <th>Alamat</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -36,6 +37,7 @@
                         <th>Username</th>
                         <th>Nomor Telepon</th>
                         <th>Alamat</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -49,6 +51,7 @@
                         <td>{{$item->username}}</td>
                         <td>{{$item->nomor_telepon}}</td>
                         <td>{{$item->alamat}}</td>
+                        <td>{{$item->role}}</td>
                         <td>
                             <a href="{{url('/admin/user/edit')}}/{{$item->id}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">

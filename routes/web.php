@@ -28,7 +28,7 @@ Route::prefix('user')->group(function () {
         return view('user.index',[
             'active' => "dashboard"
         ]);
-    });
+    })->name('user');
 
     Route::get('/jadwal', [JadwalController::class,'index']);
 });
@@ -41,14 +41,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', [AuthController::class,'index']);
+Route::get('/login', [AuthController::class,'index'])->name('login');
 Route::post('/login', [AuthController::class,'authenticate']);
 
 Route::get('/register', function() {
     return view('auth.register', [
         'title' => 'Register Page'
     ]);
-});
+})->name('register');
+Route::post('/register', [AuthController::class,'register']);
 
 // Route::get('/admin', function() {
 //     return view('admin.index', [

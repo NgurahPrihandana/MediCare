@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('tb_doctors', function (Blueprint $table) {
             $table->bigIncrements('doctor_id');
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('id_spesialis');
             $table->string('nama');
             $table->string('nomor_telepon');
