@@ -29,22 +29,17 @@
                             <a class="nav-link" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Contact Us</a>
+                            <a class="nav-link active" href="/contact">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item right-nav d-flex align-items-center dropdown">
-                            <div class="outer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="outer">
                                 <img src="img/user-icon.png" width="20px" alt="">
-                                <a class="nav-link d-inline-block" href="#" >
-                                    <span class="username">Login</span>
+                                <a class="nav-link d-inline-block" href="/login" >
+                                  <span class="username">Login</span>
                                 </a>
                             </div>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">My Dashboard</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="#">Log Out</a></li>
-                        </ul>
                         </li>
                     </ul>
                 </div>
