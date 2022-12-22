@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse justify-content-lg-center" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Service</a>
@@ -29,7 +29,7 @@
                             <a class="nav-link" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
+                            <a class="nav-link active" href="#">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
