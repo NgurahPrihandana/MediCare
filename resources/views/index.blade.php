@@ -217,7 +217,7 @@
                 <h4>Emergency medical care</h4>
               </div>
               <div class="col-lg-3 d-flex align-items-center">
-                <a href="" class="btn-contact-us">Contact Us</a>
+                <a href="/contact" class="btn-contact-us">Contact Us</a>
               </div>
             </div>
           </div>
