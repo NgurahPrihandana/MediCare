@@ -85,6 +85,8 @@
                 <div class="card-contact">
                     <div class="row">
                         <h3>Want to Get Closer to Us?</h3>
+                        <hr>
+                        <p>Message Us Via one of the social media that we have. Be part of our great team, to make the best hospital ever in the world.</p>
                     </div>
                 </div>
             </div>
