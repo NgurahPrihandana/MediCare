@@ -106,6 +106,8 @@ Route::prefix('admin')->group(function () {
     Route::delete('/user/{id}', [UserController::class,'delete']);
     Route::get('/user/edit/{id}', [UserController::class,'edit']);
     Route::put('/user/edit/{id}', [UserController::class,'update']);
+
+    Route::get('/jadwal', [JadwalController::class,'admin']);
 });
 
 

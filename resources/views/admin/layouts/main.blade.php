@@ -90,6 +90,12 @@
                     <span>Spesialis</span></a>
             </li>
 
+            <li class="nav-item {{ $active === 'jadwal' ? 'active' : '' }}">
+                <a class="nav-link" href="/admin/jadwal">
+                    <i class="fas fa-fw fa-user-md"></i>
+                    <span>Jadwal</span></a>
+            </li>
+
             <li class="nav-item {{ $active === 'registrasi' ? 'active' : '' }}">
                 <a class="nav-link" href="/admin/registrasi">
                     <i class="fas fa-fw fa-user-md"></i>
