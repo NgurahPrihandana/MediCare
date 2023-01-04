@@ -45,10 +45,10 @@
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{$item->nama}}</td>
-                        <td>{{$item->nomor_telepon}}</td>
-                        <td>{{$item->alamat}}</td>
-                        <td>{{$item->email}}</td>
                         <td>{{$item->nama_spesialis}}</td>
+                        <td>{{$item->hari}}</td>
+                        <td>{{$item->waktu_awal}}</td>
+                        <td>{{$item->waktu_akhir}}</td>
                         <td>
                             <a href="{{url('/admin/doctor/edit')}}/{{$item->doctor_id}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
