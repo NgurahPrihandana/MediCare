@@ -26,6 +26,9 @@
       rel="stylesheet"
       href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css"
     />
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/buttons.bootstrap4.css">
+    @stack('css')
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
   </head>
 
@@ -123,11 +126,25 @@
                   >
                 </li>
                 <li class="nav-divider">Information</li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a
                     class="nav-link {{ $active === 'jadwal' ? 'active' : '' }}"
                     href="{{url('/user/jadwal')}}"
-                    ><i class="fas fa-fw fa-columns"></i> Jadwal
+                    ><i class="fas fa-fw fa-columns"></i> Hari
+                  </a>
+                </li> --}}
+                <li class="nav-item">
+                  <a
+                    class="nav-link {{ $active === 'spesialis' ? 'active' : '' }}"
+                    href="{{url('/user/spesialis')}}"
+                    ><i class="fas fa-fw fa-columns"></i> Spesialis
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link {{ $active === 'praktik' ? 'active' : '' }}"
+                    href="{{url('/user/praktik')}}"
+                    ><i class="fas fa-fw fa-columns"></i> Praktik
                   </a>
                 </li>
                 <li class="nav-divider">Features</li>
@@ -204,5 +221,9 @@
     <script src="/assets/vendor/charts/charts-bundle/chartjs.js"></script> --}}
     <!-- dashboard js -->
     <script src="/assets/libs/js/dashboard-influencer.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/vendor/datatables/js/data-table.js"></script>
+    @stack('script')
   </body>
 </html>

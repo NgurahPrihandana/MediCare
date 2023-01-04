@@ -11,6 +11,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\PraktikController;
 use App\Http\Controllers\SpesialisController;
+use App\Http\Controllers\RegistrasiController;
 
 
 /*
@@ -31,7 +32,13 @@ Route::prefix('user')->group(function () {
         ]);
     })->name('user');
 
-    Route::get('/jadwal', [JadwalController::class,'index']);
+    // Route::get('/jadwal', [JadwalController::class,'index']);
+
+    Route::get('/praktik', [PraktikController::class,'index']);
+
+    Route::get('/spesialis', [SpesialisController::class,'index']);
+    Route::get('/spesialis/{id}', [SpesialisController::class,'detail']);
+    Route::get('/registrasi/regis/{id}', [RegistrasiController::class,'registrasi']);
 });
 
 Route::get('/contact', function() {
@@ -64,13 +71,7 @@ Route::prefix('admin')->group(function () {
             'active' => 'dashboard'
         ]);
     })->name("admin");
-    Route::get('/spesialis', function() {
-        $data_spesialis = Spesialis::all();
-        return view('admin.spesialis', [
-            'active' => 'spesialis',
-            'data_spesialis' => $data_spesialis
-        ]);
-    });
+    Route::get('/spesialis', [SpesialisController::class,'admin']);
     Route::post('/spesialis', [SpesialisController::class,'store'])->name("spesialis.store");
     Route::delete('/spesialis/{id}', [SpesialisController::class,'delete'])->name("spesialis.delete");
     Route::get('/spesialis/edit/{id}', [SpesialisController::class,'edit'])->name("spesialis.edit");
@@ -112,6 +113,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/jadwal', [JadwalController::class,'admin']);
     Route::post('/jadwal', [JadwalController::class,'store']);
     Route::delete('/jadwal/{id}', [JadwalController::class,'delete']);
+    Route::get('/jadwal/edit/{id}', [JadwalController::class,'edit']);
+    Route::put('/jadwal/edit/{id}', [JadwalController::class,'update']);
 
     Route::get('/praktik', [PraktikController::class,'admin']);
     Route::get('/praktik/create' , [PraktikController::class,'create']);

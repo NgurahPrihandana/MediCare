@@ -56,7 +56,7 @@
                             </span>
                             <span class="text">Edit</span>
                             </a>
-                            <a href="javascript:void(0)" onclick="del({{$item->doctor_id}})" class="btn btn-danger btn-icon-split">
+                            <a href="javascript:void(0)" onclick="del({{$item->id_praktik}})" class="btn btn-danger btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-trash"></i>
                                 </span>

@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\DB;
 
 class PraktikController extends Controller
 {
+    public function index() {
+        $data_praktik = DB::table('tb_praktik')
+        ->join('tb_jadwal', 'tb_praktik.id_jadwal', '=', 'tb_jadwal.id_jadwal')
+        ->join('tb_doctors', 'tb_praktik.doctor_id', '=', 'tb_doctors.doctor_id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->get();
+
+        return view('user.praktik.index', [
+            'active' => 'praktik',
+            'data_praktik' => $data_praktik
+        ]);
+    }
+
     public function admin() {
         $data_praktik = DB::table('tb_praktik')
         ->join('tb_jadwal', 'tb_praktik.id_jadwal', '=', 'tb_jadwal.id_jadwal')

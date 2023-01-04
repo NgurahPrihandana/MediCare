@@ -21,6 +21,8 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Spesialis</th>
+                        <th>Jumlah Dokter</th>
+                        <th>Jumlah Praktik</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,6 +30,8 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Spesialis</th>
+                        <th>Jumlah Dokter</th>
+                        <th>Jumlah Praktik</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -37,6 +41,8 @@
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{$item->nama_spesialis}}</td>
+                        <td>{{$item->count_doctor}}</td>
+                        <td>{{$item->count_praktik}}</td>
                         <td>
                             <a href="{{url('/admin/spesialis/edit')}}/{{$item->id_spesialis}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
