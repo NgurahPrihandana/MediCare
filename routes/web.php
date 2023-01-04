@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PraktikController;
 use App\Http\Controllers\SpesialisController;
 
 
@@ -78,7 +79,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/doctor', function() {
         $data_doctor = DB::table('tb_doctors')
-        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
         ->get();
 
         return view('admin.doctor.index', [
@@ -87,6 +88,7 @@ Route::prefix('admin')->group(function () {
         ]);
     });
     Route::get('/doctor/create' , [DoctorController::class,'create']);
+    Route::get('/doctor/{id}' , [DoctorController::class,'find']);
     Route::post('/doctor/store' , [DoctorController::class,'store']);
     Route::delete('/doctor/{id}', [DoctorController::class,'delete'])->name("doctor.delete");
     Route::get('/doctor/edit/{id}', [DoctorController::class,'edit'])->name("doctor.edit");
@@ -108,6 +110,12 @@ Route::prefix('admin')->group(function () {
     Route::put('/user/edit/{id}', [UserController::class,'update']);
 
     Route::get('/jadwal', [JadwalController::class,'admin']);
+    Route::post('/jadwal', [JadwalController::class,'store']);
+    Route::delete('/jadwal/{id}', [JadwalController::class,'delete']);
+
+    Route::get('/praktik', [PraktikController::class,'admin']);
+    Route::get('/praktik/create' , [PraktikController::class,'create']);
+    Route::post('praktik/store', [PraktikController::class,'store']);
 });
 
 

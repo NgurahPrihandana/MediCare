@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Models\Spesialis;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -38,7 +39,7 @@ class DoctorController extends Controller
     public function edit($id)
     {
         $data_doctor = DB::table('tb_doctors')
-        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
         ->where('doctor_id', '=', $id)
         ->first();
         $data_spesialis = Spesialis::all();
@@ -48,6 +49,14 @@ class DoctorController extends Controller
             'data_spesialis' => $data_spesialis,
             'id_doctor' => $id
         ]);
+    }
+
+    public function find($id) {
+        $doctor = DB::table('tb_doctors')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->where('doctor_id', '=', $id)
+        ->first();
+        return response()->json($doctor);
     }
 
     public function update(Request $request, $id) {

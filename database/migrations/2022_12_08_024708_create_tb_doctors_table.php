@@ -26,7 +26,7 @@ return new class extends Migration
         });
 
         Schema::table('tb_doctors', function (Blueprint $table) {
-            $table->foreign('id_spesialis')->references('id')->on('tb_spesialis')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_spesialis')->references('id_spesialis')->on('tb_spesialis')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

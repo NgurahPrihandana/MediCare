@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_spesialis', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_spesialis');
             $table->string('nama_spesialis');
             $table->timestamps();
         });

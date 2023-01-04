@@ -96,6 +96,12 @@
                     <span>Jadwal</span></a>
             </li>
 
+            <li class="nav-item {{ $active === 'praktik' ? 'active' : '' }}">
+                <a class="nav-link" href="/admin/praktik">
+                    <i class="fas fa-fw fa-user-md"></i>
+                    <span>Praktik</span></a>
+            </li>
+
             <li class="nav-item {{ $active === 'registrasi' ? 'active' : '' }}">
                 <a class="nav-link" href="/admin/registrasi">
                     <i class="fas fa-fw fa-user-md"></i>

@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 class JadwalController extends Controller
 {
     public function index() {
+        $data_jadwal = Jadwal::all();
         return view('user.jadwal.index',[
-            'active' => 'jadwal'
+            'active' => 'jadwal',
+            'data_jadwal' => $data_jadwal
         ]);
     }
 
@@ -28,6 +30,15 @@ class JadwalController extends Controller
             $response = [array('title' => "Success", 'msg'=> "Data Berhasil Ditambahkan",'type' => 'success'), 200];
         } else {
             $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Ditambahkan",'type' => 'error'), 500];
+        }
+        return response()->json($response);
+    }
+
+    public function delete($id) {
+        if(Jadwal::destroy($id)) {
+            $response = [array('title' => "Success", 'msg'=> "Data Berhasil Dihapus",'type' => 'success'), 200];
+        } else {
+            $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Dihapus",'type' => 'error'), 500];
         }
         return response()->json($response);
     }

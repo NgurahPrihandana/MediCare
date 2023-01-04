@@ -12,6 +12,7 @@ class Spesialis extends Model
     ];
 
     protected $table = 'tb_spesialis';
+    protected $primaryKey = 'id_spesialis';
 
     use HasFactory;
 }

@@ -1,50 +1,41 @@
 @extends('admin.layouts.main')
 
-@section('page-heading')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dokter</h1>
-</div>
-@endsection
-
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
-        <h6 class="m-0 font-weight-bold text-danger">Form Tambah Data Dokter</h6>
+        <h6 class="m-0 font-weight-bold text-danger">Form Tambah Data Praktik</h6>
     </div>
     <div class="card-body">
         <form>
             <div class="mb-3">
               <label for="nama_doctor" class="form-label">Nama Doctor</label>
-              <input type="text" class="form-control" id="nama_doctor" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
-              <input type="number" class="form-control" id="nomor_telepon">
-            </div>
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username">
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password">
-            </div>
-            <div class="mb-3">
-              <label for="alamat" class="form-label">Alamat</label>
-              <input type="text" class="form-control" id="alamat">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="text" class="form-control" id="email">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Spesialis</label>
-              <select class="form-control form-select-lg mb-3" name="" id="id_spesialis" aria-label=".form-select-lg example">
-                <option selected disabled hidden>Pilih Salah Satu Spesialis</option>
-                @foreach($data_spesialis as $item)
-                    <option value={{$item->id_spesialis}}>{{$item->nama_spesialis}}</option>
+              <select class="form-control form-select-lg mb-3" name="" id="doctor_id" aria-label=".form-select-lg example">
+                <option selected disabled hidden>Pilih Salah Satu Dokter</option>
+                @foreach($data_doctor as $item)
+                    <option value={{$item->doctor_id}}>{{$item->nama}}</option>
                 @endforeach
               </select>
+            </div>
+            <div class="mb-3">
+              <label for="spesialis" class="form-label">Spesialis</label>
+              <input type="text" class="form-control" id="spesialis" value="" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="nomor_telepon" class="form-label">Hari</label>
+              <select class="form-control form-select-lg mb-3" name="" id="id_jadwal" aria-label=".form-select-lg example">
+                <option selected disabled hidden>Pilih Salah Satu Hari</option>
+                @foreach($data_jadwal as $item)
+                    <option value={{$item->id_jadwal}}>{{$item->hari}}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="waktu_awal" class="form-label">Waktu Awal</label>
+              <input type="time" class="form-control" id="waktu_awal">
+            </div>
+            <div class="mb-3">
+              <label for="waktu_akhir" class="form-label">Waktu Akhir</label>
+              <input type="time" class="form-control" id="waktu_akhir">
             </div>
             <a href="{{url('/admin/doctor')}}" class="btn btn-success">Back</a>
             <a onclick="store()" href="javascript:void(0)" class="btn btn-primary">Tambah Data</a>
@@ -57,8 +48,28 @@
 
 @push('scripts')
   <script>
+    $('#doctor_id').change(function(){ 
+        let id = $("#doctor_id").find(":selected").val();
+        console.log(id);
+        $.ajax({
+            url:"{{url('/admin/doctor/')}}/"+id,
+            type:"GET",
+            success:function(response) {
+                $("#spesialis").val(response['nama_spesialis']);
+                $("#id_spesialis").val(response['id_spesialis']);
+            },
+            error:function(response){
+                console.log('Tidak Ada Data');
+            }
+
+            });
+    });
 
     function store() {
+        console.log($("#doctor_id").find(":selected").val())
+        console.log($("#id_jadwal").find(":selected").val())
+        console.log($("#waktu_awal").val())
+        console.log($("#waktu_akhir").val())
         const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
@@ -83,18 +94,15 @@
             }
             });
             $.ajax({
-            url:"/admin/doctor/store",
+            url:"/admin/praktik/store",
             type:"POST",
 
             data:{
                 _token:"{{csrf_token()}}",
-                nama:$("#nama_doctor").val(),
-                nomor_telepon:$("#nomor_telepon").val(),
-                email:$("#email").val(),
-                username:$("#username").val(),
-                password:$("#password").val(),
-                alamat:$("#alamat").val(),
-                id_spesialis:$("#id_spesialis").find(":selected").val()
+                doctor_id:$("#doctor_id").find(":selected").val(),
+                id_jadwal:$("#id_jadwal").find(":selected").val(),
+                waktu_awal:$("#waktu_awal").val(),
+                waktu_akhir:$("#waktu_akhir").val(),
             },
             success:function(response) {
                 Swal.fire(

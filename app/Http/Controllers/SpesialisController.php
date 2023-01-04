@@ -19,18 +19,18 @@ class SpesialisController extends Controller
         if(Spesialis::create([
             'nama_spesialis' => $request->nama_spesialis
         ])) {
-            $response = [array('msg'=> "Sukses"), 200];
+            $response = [array('title' => "Success", 'msg'=> "Data Berhasil Ditambahkan",'type' => 'success'), 200];
         } else {
-            $response = [array('msg'=> "Gagal"), 500];
+            $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Ditambahkan",'type' => 'error'), 500];
         }
         return response()->json($response);
     }
 
     public function delete($id) {
         if(Spesialis::destroy($id)) {
-            $response = [array('msg'=> "Sukses"), 200];
+            $response = [array('title' => "Success", 'msg'=> "Data Berhasil Dihapus",'type' => 'success'), 200];
         } else {
-            $response = [array('msg'=> "Gagal"), 500];
+            $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Dihapus",'type' => 'error'), 500];
         }
         return response()->json($response);
     }
@@ -49,9 +49,9 @@ class SpesialisController extends Controller
         $spesialis = Spesialis::find($id);
         $spesialis->nama_spesialis = $request->nama_spesialis;
         if($spesialis->save()) {
-            $response = [array('msg'=> "Sukses"), 200];
+            $response = [array('title' => "Success", 'msg'=> "Data Berhasil Dirubah",'type' => 'success'), 200];
         } else {
-            $response = [array('msg'=> "Gagal"), 500];
+            $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Dirubah",'type' => 'error'), 500];
         }
         return response()->json($response);
     }
