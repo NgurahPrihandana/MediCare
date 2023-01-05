@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Models\Spesialis;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Doctor extends Model
+class Doctor extends Authenticatable
 {
     protected $fillable = [
         'id_spesialis',
@@ -16,6 +18,10 @@ class Doctor extends Model
         'username',
         'password',
         'alamat'
+    ];
+
+    protected $hidden = [
+        'password'
     ];
 
     use HasFactory;

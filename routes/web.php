@@ -25,40 +25,42 @@ use App\Http\Controllers\RegistrasiController;
 |
 */
 
-Route::prefix('user')->group(function () {
-    Route::get('/', function() {
-        $jumlah_spesialis = DB::table('tb_spesialis')
-        ->select(DB::raw('count(tb_spesialis.id_spesialis) as jumlah_spesialis'))
-        ->first();
-
-        $jumlah_dokter = DB::table('tb_doctors')
-        ->select(DB::raw('count(tb_doctors.doctor_id) as jumlah_dokter'))
-        ->first();
-        
-        $jumlah_praktik = DB::table('tb_praktik')
-        ->select(DB::raw('count(tb_praktik.id_praktik) as jumlah_praktik'))
-        ->first();
-
-        $jumlah_registrasi = DB::table('tb_registrasi')
-        ->select(DB::raw('count(tb_registrasi.id_registrasi) as jumlah_registrasi'))
-        ->first();
-
-        return view('user.index',[
-            'active' => "dashboard",
-            'jumlah_spesialis' => $jumlah_spesialis,
-            'jumlah_dokter' => $jumlah_dokter,
-            'jumlah_praktik' => $jumlah_praktik,
-            'jumlah_registrasi' => $jumlah_registrasi
-        ]);
-    })->name('user');
-
-    // Route::get('/jadwal', [JadwalController::class,'index']);
-
-    Route::get('/booking', [PraktikController::class,'index']);
-
-    Route::get('/spesialis', [SpesialisController::class,'index']);
-    Route::get('/spesialis/{id}', [SpesialisController::class,'detail']);
-    Route::get('/registrasi/regis/{id}', [RegistrasiController::class,'registrasi']);
+Route::group(['middleware' => ['auth','role:user']], function() {
+    Route::prefix('user')->group(function () {
+        Route::get('/', function() {
+            $jumlah_spesialis = DB::table('tb_spesialis')
+            ->select(DB::raw('count(tb_spesialis.id_spesialis) as jumlah_spesialis'))
+            ->first();
+    
+            $jumlah_dokter = DB::table('tb_doctors')
+            ->select(DB::raw('count(tb_doctors.doctor_id) as jumlah_dokter'))
+            ->first();
+            
+            $jumlah_praktik = DB::table('tb_praktik')
+            ->select(DB::raw('count(tb_praktik.id_praktik) as jumlah_praktik'))
+            ->first();
+    
+            $jumlah_registrasi = DB::table('tb_registrasi')
+            ->select(DB::raw('count(tb_registrasi.id_registrasi) as jumlah_registrasi'))
+            ->first();
+    
+            return view('user.index',[
+                'active' => "dashboard",
+                'jumlah_spesialis' => $jumlah_spesialis,
+                'jumlah_dokter' => $jumlah_dokter,
+                'jumlah_praktik' => $jumlah_praktik,
+                'jumlah_registrasi' => $jumlah_registrasi
+            ]);
+        })->name('user');
+    
+        // Route::get('/jadwal', [JadwalController::class,'index']);
+    
+        Route::get('/booking', [PraktikController::class,'index']);
+    
+        Route::get('/spesialis', [SpesialisController::class,'index']);
+        Route::get('/spesialis/{id}', [SpesialisController::class,'detail']);
+        Route::get('/registrasi/regis/{id}', [RegistrasiController::class,'registrasi']);
+    });
 });
 
 Route::get('/contact', function() {
@@ -71,6 +73,7 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class,'index'])->name('login');
 Route::post('/login', [AuthController::class,'authenticate']);
+Route::get('logout', [AuthController::class,'logout']);
 
 Route::get('/register', function() {
     return view('auth.register', [
@@ -92,7 +95,6 @@ Route::prefix('doctor')->group(function () {
     })->name("doctor");
 });
 Route::prefix('admin')->group(function () {
-
     Route::get('/', function() {
         $jumlah_spesialis = DB::table('tb_spesialis')
         ->select(DB::raw('count(tb_spesialis.id_spesialis) as jumlah_spesialis'))
