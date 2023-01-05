@@ -1,13 +1,7 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Landing Page | MediCare</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
-    <body class="contact">
+@extends('layouts/main')
+
+@section('content')
+    <div class="contact">
         <nav class="navbar fixed-top nav-user navbar-expand-lg bg-light">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center fw-semibold" href="#">
@@ -37,7 +31,7 @@
                             <div class="outer">
                                 <img src="img/user-icon.png" width="20px" alt="">
                                 <a class="nav-link d-inline-block" href="/login" >
-                                  <span class="username">Login</span>
+                                <span class="username">Login</span>
                                 </a>
                             </div>
                         </li>
@@ -128,5 +122,9 @@
                 <span class="text-logo">MediCare</span>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection
+
+@push('scripts')
+    <script></script>
+@endpush
