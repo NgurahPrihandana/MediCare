@@ -70,7 +70,7 @@
                                 <input id="tanggal_booking" type="date" class="form-control">
                             </div>
 
-                            <a onclick="store({{$data_praktik->id_praktik}})" href="javascript:void(0)" class="btn btn-primary">Submit</a>
+                            <a onclick="store({{$data_praktik->id_praktik}})" href="/user/registrasi/regis.blade/" class="btn btn-primary">Submit</a>
                           </form>
                       </div>
                   </div>

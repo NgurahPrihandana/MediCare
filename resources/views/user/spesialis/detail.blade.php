@@ -106,7 +106,7 @@
                                             <td>{{$item->waktu_awal}}</td>
                                             <td>{{$item->waktu_akhir}}</td>
                                             <td>
-                                                <a href="{{url('/admin/doctor/edit')}}/{{$item->doctor_id}}" class="btn btn-success btn-icon-split">
+                                                <a href="{{url('/user/registrasi/regis/')}}/{{$item->doctor_id}}" class="btn btn-success btn-icon-split">
                                                 <span class="text">Daftar</span>
                                                 </a>
                                             </td>

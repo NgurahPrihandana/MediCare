@@ -91,15 +91,19 @@
                                         <label for="nama">Nama : </label>
                                         <input type="text" name="nama" id="nama" required>
                                     </div>
+                                    <br>
                                     <div class="form-contact">
                                         <label for="email">Email : </label>
                                         <input type="text" name="email" id="email" required>
                                     </div>
+                                    <br>
                                     <div class="form-contact">
                                         <label for="message">Message : </label>
                                         <input type="text" name="message" id="message" required>
                                     </div>
-                                    <button type="send" name="send">Send Massage</button>
+                                    <div class="btn-container mt-5">
+                                        <button type="send" name="send">Send Massage</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
