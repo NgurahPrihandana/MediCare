@@ -142,9 +142,9 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    class="nav-link {{ $active === 'praktik' ? 'active' : '' }}"
-                    href="{{url('/user/praktik')}}"
-                    ><i class="fas fa-fw fa-columns"></i> Praktik
+                    class="nav-link {{ $active === 'booking' ? 'active' : '' }}"
+                    href="{{url('/user/booking')}}"
+                    ><i class="fas fa-fw fa-columns"></i> Booking
                   </a>
                 </li>
                 <li class="nav-divider">Features</li>

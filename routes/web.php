@@ -54,7 +54,7 @@ Route::prefix('user')->group(function () {
 
     // Route::get('/jadwal', [JadwalController::class,'index']);
 
-    Route::get('/praktik', [PraktikController::class,'index']);
+    Route::get('/booking', [PraktikController::class,'index']);
 
     Route::get('/spesialis', [SpesialisController::class,'index']);
     Route::get('/spesialis/{id}', [SpesialisController::class,'detail']);
