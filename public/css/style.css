@@ -120,12 +120,13 @@ h6 {font-size: 0.938rem;font-weight: 600;}
     justify-content: flex-end;
 }
 
-.register form button {
+.register form a {
     padding: .5rem 5rem;
     background-color: transparent;
     color: #FF553C;
     font-size: 1rem;
     border: 1px solid #FF553C;
+    text-decoration: none;
 }
 
 .register .card-text-container p > a{

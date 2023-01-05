@@ -37,6 +37,18 @@ class AuthController extends Controller
     }
 
     public function register(Request $request) {
+        $username = User::where('username', '=', $request->username)->first();
+        if(isset($username) && $username !== '') {
+            $response = [array('title' => "Gagal", 'msg'=> "Username telah digunakan",'type' => 'error'), 500];
+            return response()->json($response);
+        }
+
+        $email = User::where('email', '=', $request->email)->first();
+        if(isset($email) && $email !== '') {
+            $response = [array('title' => "Gagal", 'msg'=> "Email telah digunakan",'type' => 'error'), 500];
+            return response()->json($response);
+        }
+
         if(User::create([
             'nama' => $request->nama,
             'nomor_telepon' => $request->nomor_telepon,
@@ -46,9 +58,10 @@ class AuthController extends Controller
             'role' => $request->role,
             'alamat' => $request->alamat
         ])) {
-            return redirect()->intended('login');
+            $response = [array('title' => "Success", 'msg'=> "Registrasi Sukses",'type' => 'success'), 200];
         } else {
-            return redirect()->intended('register');
+            $response = [array('title' => "Gagal", 'msg'=> "Registrasi Gagal",'type' => 'error'), 500];
         }
+        return response()->json($response);
     }
 }
