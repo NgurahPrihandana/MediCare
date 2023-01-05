@@ -19,9 +19,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Service</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="/contact">Contact Us</a>
             </li>
