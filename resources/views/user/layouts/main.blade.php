@@ -65,7 +65,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                   ><img
-                    src="assets/images/avatar-1.jpg"
+                    src="/assets/images/avatar-1.jpg"
                     alt=""
                     class="user-avatar-md rounded-circle"
                 /></a>
@@ -179,15 +179,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                Copyright © 2022 Concept. All rights reserved.
-                <a href="https://colorlib.com/wp/">Colorlib</a>.
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="text-md-right footer-links d-none d-sm-block">
-                  <a href="javascript: void(0);">About</a>
-                  <a href="javascript: void(0);">Support</a>
-                  <a href="javascript: void(0);">Contact Us</a>
-                </div>
+                Copyright © 2022 Medicare. All rights reserved.
               </div>
             </div>
           </div>
@@ -220,7 +212,6 @@
     {{-- <script src="/assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
     <script src="/assets/vendor/charts/charts-bundle/chartjs.js"></script> --}}
     <!-- dashboard js -->
-    <script src="/assets/libs/js/dashboard-influencer.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="/assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="/assets/vendor/datatables/js/data-table.js"></script>
