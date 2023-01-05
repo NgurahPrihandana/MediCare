@@ -20,6 +20,16 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+        $user = User::where('email', '=', $request->email)->first();
+        if(isset($user) && $user !== '') {
+            
+        }
+
+        $doctor = Doctor::where('email', '=', $request->email)->first();
+        if(isset($doctor) && $doctor !== '') {
+            
+        }
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             
@@ -44,6 +54,12 @@ class AuthController extends Controller
         }
 
         $email = User::where('email', '=', $request->email)->first();
+        if(isset($email) && $email !== '') {
+            $response = [array('title' => "Gagal", 'msg'=> "Email telah digunakan",'type' => 'error'), 500];
+            return response()->json($response);
+        }
+
+        $email = Doctor::where('email', '=', $request->email)->first();
         if(isset($email) && $email !== '') {
             $response = [array('title' => "Gagal", 'msg'=> "Email telah digunakan",'type' => 'error'), 500];
             return response()->json($response);

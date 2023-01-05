@@ -13,11 +13,7 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="page-header">
-                    <h3 class="mb-2">Dashboard User</h3>
-                    <p class="pageheader-text">
-                      Proin placerat ante duiullam scelerisque a velit ac porta,
-                      fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.
-                    </p>
+                    <h3 class="mb-2">Dashboard Dokter</h3>
                     <div class="page-breadcrumb">
                       <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -52,8 +48,8 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="d-inline-block">
-                        <h5 class="text-muted">Total Spesialis</h5>
-                        <h2 class="mb-0">{{$jumlah_spesialis->jumlah_spesialis}}</h2>
+                        <h5 class="text-muted">Total Views</h5>
+                        <h2 class="mb-0">10,28,056</h2>
                       </div>
                       <div
                         class="float-right icon-circle-medium icon-box-lg bg-info-light mt-1"
@@ -73,8 +69,8 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="d-inline-block">
-                        <h5 class="text-muted">Total Dokter</h5>
-                        <h2 class="mb-0">{{$jumlah_dokter->jumlah_dokter}}</h2>
+                        <h5 class="text-muted">Total Spesialis</h5>
+                        <h2 class="mb-0">24,763</h2>
                       </div>
                       <div
                         class="float-right icon-circle-medium icon-box-lg bg-primary-light mt-1"
@@ -94,8 +90,8 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="d-inline-block">
-                        <h5 class="text-muted">Total Praktik</h5>
-                        <h2 class="mb-0">{{$jumlah_praktik->jumlah_praktik}}</h2>
+                        <h5 class="text-muted">Total Dokter</h5>
+                        <h2 class="mb-0">14</h2>
                       </div>
                       <div
                         class="float-right icon-circle-medium icon-box-lg bg-secondary-light mt-1"
@@ -115,8 +111,8 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="d-inline-block">
-                        <h5 class="text-muted">Total Registrasi</h5>
-                        <h2 class="mb-0">{{$jumlah_registrasi->jumlah_registrasi}}</h2>
+                        <h5 class="text-muted">Total Praktik</h5>
+                        <h2 class="mb-0">$149.00</h2>
                       </div>
                       <div
                         class="float-right icon-circle-medium icon-box-lg bg-brand-light mt-1"

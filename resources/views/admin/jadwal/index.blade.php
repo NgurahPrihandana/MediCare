@@ -21,6 +21,7 @@
                     <tr>
                         <th>No</th>
                         <th>Hari</th>
+                        <th>Index Of Days</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                     <tr>
                         <th>No</th>
                         <th>Hari</th>
+                        <th>Index Of Days</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -37,6 +39,7 @@
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{$item->hari}}</td>
+                        <td>{{$item->indexOfDays}}</td>
                         <td>
                             <a href="{{url('/admin/jadwal/edit')}}/{{$item->id_jadwal}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
@@ -76,6 +79,10 @@
                 <div class="mb-3">
                   <label for="nama_spesialis" class="form-label">Hari</label>
                   <input type="text" name="hari" class="form-control" id="hari" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="nama_spesialis" class="form-label">IndexOfDays (0-6) | (Minggu - Sabtu)</label>
+                  <input type="text" name="hari" class="form-control" id="indexOfDays" aria-describedby="emailHelp">
                 </div>
             </div>
             <div class="modal-footer">

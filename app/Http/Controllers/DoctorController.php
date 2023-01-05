@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Spesialis;
 use Illuminate\Http\Request;
@@ -20,6 +21,18 @@ class DoctorController extends Controller
     }
 
     public function store(Request $request) {
+        $email = User::where('email', '=', $request->email)->first();
+        if(isset($email) && $email !== '') {
+            $response = [array('title' => "Gagal", 'msg'=> "Email telah digunakan",'type' => 'error'), 500];
+            return response()->json($response);
+        }
+
+        $emailDoctor = Doctor::where('email', '=', $request->email)->first();
+        if(isset($emailDoctor) && $emailDoctor !== '') {
+            $response = [array('title' => "Gagal", 'msg'=> "Email telah digunakan",'type' => 'error'), 500];
+            return response()->json($response);
+        }
+        
         if(Doctor::create([
             'id_spesialis' => $request->id_spesialis,
             'nama' => $request->nama,

@@ -25,3 +25,76 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+<script>
+
+    function store() {
+        console.log($("#nama").val())
+        console.log($("#nomor_telepon").val())
+        console.log($("#email").val())
+        console.log($("#username").val())
+        console.log($("#password").val())
+        console.log($("#role").val())
+        console.log($("#alamat").val())
+        const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger mr-2'
+        },
+        buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+        title: 'Apakah Data Sudah Benar ?',
+        text: "Data akan di Simpan di Database",
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true
+        }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+            });
+            $.ajax({
+            url:"/login",
+            type:"POST",
+
+            data:{
+                _token:"{{csrf_token()}}",
+                email:$("#email").val(),
+                password:$("#password").val()
+            },
+            success:function(response) {
+                Swal.fire(
+                response[0]['title'],
+                response[0]['msg'],
+                response[0]['type']
+                ).then(function() {
+                    window.location.replace("{{url('/login')}}");
+                });
+            },
+            error:function(){
+                Swal.fire(
+                response[0]['title'],
+                response[0]['msg'],
+                response[0]['type']
+                ).then(function() {
+                    // location.reload();
+                });
+            }
+
+            });
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            
+        }
+        })
+    }
+</script>
+@endpush
