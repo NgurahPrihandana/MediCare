@@ -47,7 +47,7 @@
                         <td>{{$item->waktu_awal}}</td>
                         <td>{{$item->waktu_akhir}}</td>
                         <td>
-                            <a href="{{url('/admin/registrasi/detail')}}/{{$item->id_spesialis}}/{{$item->id_praktik}}" class="btn btn-primary btn-icon-split">
+                            <a href="{{url('/admin/registrasi/detail/user')}}/{{$item->id_spesialis}}/{{$item->id_praktik}}" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-info"></i>
                             </span>

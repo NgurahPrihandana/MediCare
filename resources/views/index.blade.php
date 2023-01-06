@@ -37,11 +37,7 @@
                 <h6 class="d-inline-block mb-3 ms-3">Health Come First</h6>
               </div>
               <h2>Live a Healthier life <br> With Medicare</h2>
-              <a href="" class="btn btn-danger button">
-                {{-- <span>Get in Touch</span> --}}
-                <span>See Our Service</span>
-                <!-- icon -->
-              </a>
+              
               <p class="mt-3">MediCare is a website for users to booking doctors easily. Get doctors for your problems here with MediCare!</p>
             </div>
           </div>
@@ -116,7 +112,7 @@
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil officia quas iste consequatur aliquid distinctio temporibus maiores quaerat sequi! Deserunt.
                   </p>
-                  <a href="">More about Annisa</a>
+                  
                 </div>
               </div>
             </div>
@@ -137,7 +133,7 @@
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil officia quas iste consequatur aliquid distinctio temporibus maiores quaerat sequi! Deserunt.
                   </p>
-                  <a href="">More about Mutiara</a>
+                  
                 </div>
               </div>
             </div>
@@ -158,7 +154,7 @@
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil officia quas iste consequatur aliquid distinctio temporibus maiores quaerat sequi! Deserunt.
                   </p>
-                  <a href="">More about Anis</a>
+                  
                 </div>
               </div>
             </div>
@@ -178,7 +174,7 @@
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil officia quas iste consequatur aliquid distinctio temporibus maiores quaerat sequi! Deserunt.
                   </p>
-                  <a href="">More about Triska</a>
+                  
                 </div>
               </div>
             </div>
@@ -192,13 +188,13 @@
         <div class="mt-5">
           <div class="card-contact">
             <div class="row">
-              <div class="col-lg-9">
-                <h3>Contact us to know more about MediCare</h3>
-                <h4>Emergency medical care</h4>
+              <div class="col-lg-12">
+                <h3 class="text-center">Contact us to know more about MediCare</h3>
+                <h4 class="text-center">Emergency medical care</h4>
               </div>
-              <div class="col-lg-3 d-flex align-items-center">
-                <a href="/contact" class="btn-contact-us">Contact Us</a>
-              </div>
+              {{-- <div class="col-lg-3 d-flex align-items-center"> --}}
+                {{-- <a href="/contact" class="btn-contact-us">Contact Us</a> --}}
+              {{-- </div> --}}
             </div>
           </div>
         </div>
@@ -230,7 +226,7 @@
                   </div>
                   <div class="container">
                       <div class="row">
-                          <form action="" method="POST">
+                          {{-- <form action="" method="POST">
                               <div class="form-contact">
                                   <label for="nama">Nama : </label>
                                   <input type="text" name="nama" id="nama" required>
@@ -248,7 +244,7 @@
                               <div class="btn-container mt-5">
                                   <button type="send" name="send">Send Message</button>
                               </div>
-                          </form>
+                          </form> --}}
                       </div>
                   </div>
               </div>
@@ -264,10 +260,9 @@
           </div>
       </div>
   </div>
-    <div class="footer">
-      <div class="mt-5">
-        <img src="img/logo-medicare.png" alt="Logo">
-        <span class="text-logo">MediCare</span>
+    <div class="footer mt-5 d-flex justify-content-center align-items-center">
+      <div class="">
+        <span class="text-logo">MediCare @ All Right Reserved</span>
       </div>
     </div>
   </div>

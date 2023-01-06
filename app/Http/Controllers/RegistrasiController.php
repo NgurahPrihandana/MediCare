@@ -117,4 +117,21 @@ class RegistrasiController extends Controller
             'data_registrasi' => $data_registrasi
         ]);
     }
+
+    public function detail_spesialis_user($id, $id2) {
+        $data_registrasi = DB::table('tb_registrasi')
+        ->join('tb_users', 'tb_registrasi.id_user', '=', 'tb_users.id')
+        ->join('tb_praktik', 'tb_registrasi.id_praktik', '=', 'tb_praktik.id_praktik')
+        ->join('tb_jadwal', 'tb_praktik.id_jadwal', '=', 'tb_jadwal.id_jadwal')
+        ->join('tb_doctors', 'tb_praktik.doctor_id', '=', 'tb_doctors.doctor_id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->where('tb_spesialis.id_spesialis', '=', $id)
+        ->where('tb_praktik.id_praktik', '=', $id2)
+        ->get();
+
+        return view('admin.registrasi.detail-user', [
+            'active' => 'registrasi',
+            'data_registrasi' => $data_registrasi
+        ]);
+    }
 }

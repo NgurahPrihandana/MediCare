@@ -183,6 +183,7 @@ Route::group(['middleware' => ['auth','role:admin']], function() {
     
         Route::get('/registrasi',[RegistrasiController::class,'admin']);
         Route::get('/registrasi/detail/{id}',[RegistrasiController::class,'detail_spesialis']);
+        Route::get('/registrasi/detail/user/{id}/{id2}',[RegistrasiController::class,'detail_spesialis_user']);
     });
 });
 
