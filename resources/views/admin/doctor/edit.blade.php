@@ -45,9 +45,15 @@
               <label for="exampleInputPassword1" class="form-label">Spesialis</label>
               <select class="form-control form-select-lg mb-3" id="id_spesialis" aria-label=".form-select-lg example">
                 @foreach($data_spesialis as $item)
-                    <option value={{$item->id}} {{ $data_doctor->id_spesialis === $item->id ? 'selected' : '' }}>{{$item->nama_spesialis}}</option>
+                    <option value={{$item->id_spesialis}} {{ $data_doctor->id_spesialis === $item->id ? 'selected' : '' }}>{{$item->nama_spesialis}}</option>
                 @endforeach
               </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Spesialis</label>
+              <textarea name="" id="biodata" class="form-control">
+                  {{$data_doctor->biodata}}
+              </textarea>
             </div>
             <a href="{{url('/admin/doctor')}}" class="btn btn-success">Back</a>
             <a onclick="edit({{$data_doctor->doctor_id}})" href="javascript:void(0)" class="btn btn-primary">Edit Data</a>
@@ -60,7 +66,7 @@
 
 @push('scripts')
   <script>
-
+    
     function edit(id) {
         const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -98,7 +104,8 @@
                 old_password:$("#old_password").val(),
                 password:$("#password").val(),
                 alamat:$("#alamat").val(),
-                id_spesialis:$("#id_spesialis").find(":selected").val()
+                id_spesialis:$("#id_spesialis").find(":selected").val(),
+                biodata:$("#biodata").val(),
             },
             success:function(response) {
               console.log(response);

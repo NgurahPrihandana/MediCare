@@ -52,9 +52,15 @@
                         <td>
                             <a href="{{url('/admin/doctor/edit')}}/{{$item->doctor_id}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
-                                <i class="fas fa-info"></i>
+                                <i class="fas fa-edit"></i>
                             </span>
                             <span class="text">Edit</span>
+                            </a>
+                            <a href="{{url('/admin/doctor/detail')}}/{{$item->doctor_id}}" class="btn btn-primary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-info"></i>
+                            </span>
+                            <span class="text">Info</span>
                             </a>
                             <a href="javascript:void(0)" onclick="del({{$item->doctor_id}})" class="btn btn-danger btn-icon-split">
                                 <span class="icon text-white-50">

@@ -48,6 +48,50 @@ class PraktikController extends Controller
         ]);
     }
 
+    public function edit($id) {
+        $data_jadwal = Jadwal::all();
+        $data_doctor = DB::table('tb_doctors')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->get();
+
+        $data_praktik = DB::table('tb_praktik')
+        ->join('tb_jadwal', 'tb_praktik.id_jadwal', '=', 'tb_jadwal.id_jadwal')
+        ->join('tb_doctors', 'tb_praktik.doctor_id', '=', 'tb_doctors.doctor_id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->where('tb_praktik.id_praktik', '=', $id)
+        ->first();
+        return view('admin.praktik.edit', [
+            'active' => 'praktik',
+            'data_jadwal' => $data_jadwal,
+            'data_doctor' => $data_doctor,
+            'data_praktik' => $data_praktik,
+            'id_praktik' => $id
+        ]);
+    }
+
+    public function update(Request $request, $id) {
+        $praktik = Praktik::find($id);
+        $praktik->doctor_id = $request->doctor_id;
+        $praktik->id_jadwal = $request->id_jadwal;
+        $praktik->waktu_awal = $request->waktu_awal;
+        $praktik->waktu_akhir = $request->waktu_akhir;
+        if($praktik->save()) {
+            $response = [array('title' => "Success", 'msg'=> "Data Berhasil Dirubah",'type' => 'success'), 200];
+        } else {
+            $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Dirubah",'type' => 'error'), 500];
+        }
+        return response()->json($response);
+    }
+    
+    public function delete($id) {
+        if(Praktik::destroy($id)) {
+            $response = [array('title' => "Success", 'msg'=> "Data Berhasil Dihapus",'type' => 'success'), 200];
+        } else {
+            $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Dihapus",'type' => 'error'), 500];
+        }
+        return response()->json($response);
+    }
+
     public function store(Request $request) {
         if(Praktik::create([
             'id_jadwal' => $request->id_jadwal,

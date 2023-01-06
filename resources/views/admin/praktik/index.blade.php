@@ -50,9 +50,9 @@
                         <td>{{$item->waktu_awal}}</td>
                         <td>{{$item->waktu_akhir}}</td>
                         <td>
-                            <a href="{{url('/admin/doctor/edit')}}/{{$item->doctor_id}}" class="btn btn-success btn-icon-split">
+                            <a href="{{url('/admin/praktik/edit')}}/{{$item->doctor_id}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
-                                <i class="fas fa-info"></i>
+                                <i class="fas fa-edit"></i>
                             </span>
                             <span class="text">Edit</span>
                             </a>
@@ -102,7 +102,7 @@
             }
             });
             $.ajax({
-            url:"{{url('/admin/doctor')}}/"+id,
+            url:"{{url('/admin/praktik')}}/"+id,
             type:"DELETE",
 
             data:{

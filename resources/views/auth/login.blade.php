@@ -28,15 +28,18 @@
 
 @push('scripts')
 <script>
-
+    @if(session()->has('status'))
+        Swal.fire(
+        response[0]['title'],
+        response[0]['msg'],
+        response[0]['type']
+        ).then(function() {
+            window.location.replace("{{url('/login')}}");
+        });
+    @endif
     function store() {
-        console.log($("#nama").val())
-        console.log($("#nomor_telepon").val())
-        console.log($("#email").val())
         console.log($("#username").val())
         console.log($("#password").val())
-        console.log($("#role").val())
-        console.log($("#alamat").val())
         const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',

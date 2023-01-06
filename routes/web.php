@@ -123,6 +123,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/spesialis', [SpesialisController::class,'admin']);
     Route::post('/spesialis', [SpesialisController::class,'store'])->name("spesialis.store");
     Route::delete('/spesialis/{id}', [SpesialisController::class,'delete'])->name("spesialis.delete");
+    Route::get('/spesialis/detail/{id}', [SpesialisController::class,'admin_detail'])->name("spesialis.detail");
     Route::get('/spesialis/edit/{id}', [SpesialisController::class,'edit'])->name("spesialis.edit");
     Route::put('/spesialis/edit/{id}', [SpesialisController::class,'update'])->name("spesialis.update");
     Route::post('/spesialis/edit/{id}', [SpesialisController::class,'update'])->name("spesialis.update");
@@ -139,6 +140,7 @@ Route::prefix('admin')->group(function () {
     });
     Route::get('/doctor/create' , [DoctorController::class,'create']);
     Route::get('/doctor/{id}' , [DoctorController::class,'find']);
+    Route::get('/doctor/detail/{id}' , [DoctorController::class,'detail']);
     Route::post('/doctor/store' , [DoctorController::class,'store']);
     Route::delete('/doctor/{id}', [DoctorController::class,'delete'])->name("doctor.delete");
     Route::get('/doctor/edit/{id}', [DoctorController::class,'edit'])->name("doctor.edit");
@@ -168,6 +170,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/praktik', [PraktikController::class,'admin']);
     Route::get('/praktik/create' , [PraktikController::class,'create']);
     Route::post('praktik/store', [PraktikController::class,'store']);
+    Route::get('/praktik/edit/{id}',[PraktikController::class,'edit']);
+    Route::put('/praktik/edit/{id}', [PraktikController::class,'update']);
+    Route::delete('/praktik/{id}', [PraktikController::class,'delete']);
 });
 
 

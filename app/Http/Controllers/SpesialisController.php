@@ -55,6 +55,26 @@ class SpesialisController extends Controller
         ]);
     }
 
+    public function admin_detail($id) {
+        $data_doctor = DB::table('tb_doctors')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->where('tb_spesialis.id_spesialis', '=', $id)
+        ->get();
+
+        $data_praktik = DB::table('tb_praktik')
+        ->join('tb_jadwal', 'tb_praktik.id_jadwal', '=', 'tb_jadwal.id_jadwal')
+        ->join('tb_doctors', 'tb_praktik.doctor_id', '=', 'tb_doctors.doctor_id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->where('tb_spesialis.id_spesialis', '=', $id)
+        ->get();
+
+        return view('admin.spesialis.detail', [
+            'active' => 'spesialis',
+            'data_doctor' => $data_doctor,
+            'data_praktik' => $data_praktik
+        ]);
+    }
+
     public function store(Request $request) {
         if(Spesialis::create([
             'nama_spesialis' => $request->nama_spesialis

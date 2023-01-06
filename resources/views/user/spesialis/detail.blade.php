@@ -43,7 +43,7 @@
                         <h5 class="card-header">Tabel Dokter</h5>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered first">
+                                <table id="mw" class="table table-striped table-bordered first">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -96,7 +96,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         <?php $i = 1?>
+                                        <?php $i = 1?>
                                         @foreach ($data_praktik as $item)
                                         <tr>
                                             <td>{{ $i }}</td>

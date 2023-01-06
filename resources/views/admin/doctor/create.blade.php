@@ -46,6 +46,12 @@
                 @endforeach
               </select>
             </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Biodata</label>
+              <textarea name="" id="biodata" class="form-control">
+                  
+              </textarea>
+            </div>
             <a href="{{url('/admin/doctor')}}" class="btn btn-success">Back</a>
             <a onclick="store()" href="javascript:void(0)" class="btn btn-primary">Tambah Data</a>
         </form>
@@ -94,7 +100,8 @@
                 username:$("#username").val(),
                 password:$("#password").val(),
                 alamat:$("#alamat").val(),
-                id_spesialis:$("#id_spesialis").find(":selected").val()
+                id_spesialis:$("#id_spesialis").find(":selected").val(),
+                biodata:$("#biodata").val()
             },
             success:function(response) {
                 Swal.fire(

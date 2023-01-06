@@ -43,7 +43,7 @@
                         <td>
                             <a href="{{url('/admin/jadwal/edit')}}/{{$item->id_jadwal}}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
-                                <i class="fas fa-info"></i>
+                                <i class="fas fa-edit"></i>
                             </span>
                             <span class="text">Edit</span>
                             </a>

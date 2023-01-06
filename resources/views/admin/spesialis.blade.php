@@ -45,10 +45,16 @@
                         <td>{{$item->count_praktik}}</td>
                         <td>
                             <a href="{{url('/admin/spesialis/edit')}}/{{$item->id_spesialis}}" class="btn btn-success btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                                <span class="text">Edit</span>
+                            </a>
+                            <a href="{{url('/admin/spesialis/detail')}}/{{$item->id_spesialis}}" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-info"></i>
                             </span>
-                            <span class="text">Edit</span>
+                            <span class="text">Info</span>
                             </a>
                             <button href="javascript:void(0)" onclick="del({{$item->id_spesialis}})" class="btn btn-danger btn-icon-split">
                                 <span class="icon text-white-50">

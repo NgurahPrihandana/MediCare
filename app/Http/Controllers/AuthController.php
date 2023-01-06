@@ -30,22 +30,14 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        // $user = User::where('email', '=', $request->email)->first();
-        // if(isset($user) && $user !== '') {
-            
-        // }
-
-        // $doctor = Doctor::where('email', '=', $request->email)->first();
-        // if(isset($doctor) && $doctor !== '') {
-            
-        // }
-
         if (Auth::guard('user')->attempt($credentials)) {
             $request->session()->regenerate();
             $details = Auth::guard('user')->user();
             if($details->role == "admin") {
+                session()->put('id', $details->id);
                 return redirect()->intended('admin');
             } else if($details->role == "user") {
+                session()->put('id', $details->id);
                 return redirect()->intended('user');
             }
             return $details;
@@ -53,28 +45,30 @@ class AuthController extends Controller
             if (Auth::guard('doctor')->attempt($credentials)) {
                 $request->session()->regenerate();
                 $details = Auth::guard('doctor')->user();
-
+                return redirect()->intended('doctor');
                 return $details;
             } else {
-                return 'auth fail';
+                // dd('sa');
+                session()->flash('status', 'Task was successful!');
+                return;
             }
         }
         
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
             
-            if(Auth::user()->role == "admin") {
-                return redirect()->intended('admin');
-            } else if(Auth::user()->role == "user") {
-                return redirect()->intended('user');
-            }
-            return redirect()->intended('dashboard');
-        }
+        //     if(Auth::user()->role == "admin") {
+        //         return redirect()->intended('admin');
+        //     } else if(Auth::user()->role == "user") {
+        //         return redirect()->intended('user');
+        //     }
+        //     return redirect()->intended('dashboard');
+        // }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        // return back()->withErrors([
+        //     'email' => 'The provided credentials do not match our records.',
+        // ])->onlyInput('email');
     }
 
     public function register(Request $request) {

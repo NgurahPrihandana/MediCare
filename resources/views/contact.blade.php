@@ -28,12 +28,10 @@
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item right-nav d-flex align-items-center dropdown">
-                            <div class="outer">
-                                <img src="img/user-icon.png" width="20px" alt="">
-                                <a class="nav-link d-inline-block" href="/login" >
-                                <span class="username">Login</span>
-                                </a>
-                            </div>
+                            <a class="nav-link d-inline-block" href="/login" >
+                                <img src="img/user-icon.png" width="20px" style="margin-right: .2rem" alt="">
+                                  <span class="username">Login</span>
+                              </a>
                         </li>
                     </ul>
                 </div>

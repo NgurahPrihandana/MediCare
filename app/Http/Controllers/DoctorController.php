@@ -40,7 +40,8 @@ class DoctorController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'alamat' => $request->alamat
+            'alamat' => $request->alamat,
+            'biodata' => $request->biodata
         ])) {
             $response = [array('title' => "Success", 'msg'=> "Data Berhasil Ditambahkan",'type' => 'success'), 200];
         } else {
@@ -74,11 +75,28 @@ class DoctorController extends Controller
 
     public function update(Request $request, $id) {
         $doctor = Doctor::find($id);
+
+        if(!($request->email == $doctor->email)) {
+            $email = User::where('email', '=', $request->email)->first();
+            if(isset($email) && $email !== '') {
+                $response = [array('title' => "Gagal", 'msg'=> "Email telah digunakan",'type' => 'error'), 500];
+                return response()->json($response);
+            }
+    
+            $emailDoctor = Doctor::where('email', '=', $request->email)->first();
+            if(isset($emailDoctor) && $emailDoctor !== '') {
+                $response = [array('title' => "Gagal", 'msg'=> "Email telah digunakan",'type' => 'error'), 500];
+                return response()->json($response);
+            }
+        }
+
+        
         $doctor->id_spesialis = $request->id_spesialis;
         $doctor->nama = $request->nama;
         $doctor->nomor_telepon = $request->nomor_telepon;
         $doctor->username = $request->username;
         $doctor->email = $request->email;
+        $doctor->biodata = $request->biodata;
         if(isset($request->old_password) || isset($request->password)) {
             if(HASH::check($request->old_password, $doctor->password)) {
                 $doctor->password = bcrypt($request->password);
@@ -93,6 +111,26 @@ class DoctorController extends Controller
             $response = [array('title' => "Gagal", 'msg'=> "Data Gagal Dirubah",'type' => 'error'), 500];
         }
         return response()->json($response);
+    }
+
+    public function detail($id) {
+        $data_doctor = DB::table('tb_doctors')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->where('tb_doctors.doctor_id', '=', $id)
+        ->first();
+
+        $data_praktik = DB::table('tb_praktik')
+        ->join('tb_jadwal', 'tb_praktik.id_jadwal', '=', 'tb_jadwal.id_jadwal')
+        ->join('tb_doctors', 'tb_praktik.doctor_id', '=', 'tb_doctors.doctor_id')
+        ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
+        ->where('tb_doctors.doctor_id', '=', $id)
+        ->get();
+
+        return view('admin.doctor.detail', [
+            'active' => 'doctor',
+            'data_doctor' => $data_doctor,
+            'data_praktik' => $data_praktik
+        ]);
     }
 
     public function delete($id) {
