@@ -9,7 +9,8 @@
             </div>
             <div class="col-lg-6 px-5 card-text-container">
                 <h2 class="text-center mt-5">Register</h2>
-                <form class="mt-5">
+                <form class="mt-5" method="POST" action="/register">
+                    @csrf
                     <label class="mb-2" for="nama">Nama</label>
                     <input class="mb-3" type="text" name="nama" id="nama">
                     <label class="mb-2" for="username">Username</label>
@@ -88,7 +89,7 @@
                 response[0]['msg'],
                 response[0]['type']
                 ).then(function() {
-                    window.location.replace("{{url('/login')}}");
+                    location.reload();
                 });
             },
             error:function(){
@@ -97,7 +98,7 @@
                 response[0]['msg'],
                 response[0]['type']
                 ).then(function() {
-                    // location.reload();
+                    location.reload();
                 });
             }
 

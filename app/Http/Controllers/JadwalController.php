@@ -25,7 +25,8 @@ class JadwalController extends Controller
 
     public function store(Request $request) {
         if(Jadwal::create([
-            'hari' => $request->hari
+            'hari' => $request->hari,
+            'indexOfDays' => $request->indexOfDays
         ])) {
             $response = [array('title' => "Success", 'msg'=> "Data Berhasil Ditambahkan",'type' => 'success'), 200];
         } else {
@@ -47,6 +48,7 @@ class JadwalController extends Controller
     public function update(Request $request, $id) {
         $spesialis = Jadwal::find($id);
         $spesialis->hari = $request->hari;
+        $spesialis->indexOfDays = $request->indexOfDays;
         if($spesialis->save()) {
             $response = [array('title' => "Success", 'msg'=> "Data Berhasil Dirubah",'type' => 'success'), 200];
         } else {

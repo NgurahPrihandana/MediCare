@@ -45,34 +45,34 @@
                           <form>
                               <div class="form-group">
                                   <label for="inputText3" class="col-form-label">Nama Lengkap Pasien</label>
-                                  <input id="inputText3" type="text" id="nama_lengkap" class="form-control">
+                                  <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control">
   
                               </div>
                               <div class="form-group">
                                   <label for="inputText3" class="col-form-label">Tanggal Lahir</label>
-                                  <input id="inputText3" type="date" id="tanggal_lahir" class="form-control">
+                                  <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
   
                               </div>
                               <div class="form-group">
                                   <label for="inputEmail">Jenis Kelamin</label>
-                                  <select class="form-control" id="jenis_kelamin">
-                                    <option value="L">Laki - Laki</option>
+                                  <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+                                    <option value="L" selected>Laki - Laki</option>
                                     <option value="P">Perempuan</option>
                                   </select>
   
                               </div>
                               <div class="form-group">
                                   <label for="exampleFormControlTextarea1">Keluhan Pasien</label>
-                                  <textarea class="form-control" id="keluhan" rows="3">
+                                  <textarea class="form-control" id="keluhan" name="keluhan" rows="3">
                                     
                                   </textarea>
                               </div>
                               <div class="form-group">
-                                <label for="inputText3" class="col-form-label">Tanggal Booking</label>
-                                <input id="tanggal_booking" type="date" class="form-control">
+                                <label for="inputText3" class="col-form-label">Tanggal Kedatangan</label>
+                                <input id="tanggal_kedatangan" type="date" name="tanggal_kedatangan" class="form-control">
                             </div>
                             
-                            <a onclick="store({{$data_praktik->id_praktik}},{{session()->get('id')}})" href="/user/registrasi/regis.blade/" class="btn btn-primary">Submit</a>
+                            <a onclick="store({{$data_praktik->id_praktik}},{{session()->get('id')}})" href="javascript:void(0)" class="btn btn-primary">Submit</a>
                           </form>
                       </div>
                   </div>
@@ -108,16 +108,18 @@
       month = '0' + month;
     }
     let mindate =  year + '-' + month + '-' + sDate;
-    let elem = document.getElementById('tanggal_booking');
+    let elem = document.getElementById('tanggal_kedatangan');
     elem.setAttribute('min', mindate);
     elem.setAttribute('step', 7);
 
-    function store() {
+    function store(id_praktik, id_user) {
+        console.log(id_praktik);
+        console.log(id_user);
         console.log($("#nama_lengkap").val())
         console.log($("#tanggal_lahir").val())
         console.log($("#jenis_kelamin").find(":selected").val())
         console.log($("#keluhan").val())
-        console.log($("#tanggal_booking").val())
+        console.log($("#tanggal_kedatangan").val())
         const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
@@ -142,16 +144,18 @@
             }
             });
             $.ajax({
-            url:"/user/registrasi/store",
+            url:"/user/registrasi/regis/store",
             type:"POST",
 
             data:{
                 _token:"{{csrf_token()}}",
-                doctor_id:$("#nama_lengkap").val(),
-                doctor_id:$("#tanggal_lahir").val(),
-                id_jadwal:$("#jenis_kelamin").find(":selected").val(),
-                waktu_awal:$("#keluhan").val(),
-                waktu_akhir:$("#tanggal_booking").val(),
+                nama_lengkap:$("#nama_lengkap").val(),
+                tanggal_lahir:$("#tanggal_lahir").val(),
+                jenis_kelamin:$("#jenis_kelamin").find(":selected").val(),
+                keluhan:$("#keluhan").val(),
+                tanggal_kedatangan:$("#tanggal_kedatangan").val(),
+                id_praktik:id_praktik,
+                id_user:id_user
             },
             success:function(response) {
                 Swal.fire(

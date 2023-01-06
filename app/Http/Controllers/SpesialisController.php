@@ -11,11 +11,12 @@ class SpesialisController extends Controller
     public function index() {
         // $data_spesialis = Spesialis::all();
         $data_spesialis = DB::table('tb_spesialis')
-        ->select(DB::raw('tb_spesialis.*, count(tb_doctors.doctor_id) as count_doctor, count(tb_praktik.id_praktik) as count_praktik'))
+        ->select(DB::raw('tb_spesialis.*, count(tb_praktik.id_praktik) as count_praktik'))
         ->leftJoin('tb_doctors', 'tb_spesialis.id_spesialis', '=', 'tb_doctors.id_spesialis')
         ->leftJoin('tb_praktik', 'tb_praktik.doctor_id', '=', 'tb_doctors.doctor_id')
         ->groupBy('tb_spesialis.id_spesialis')
         ->get();
+
         return view('user.spesialis.index', [
             'active' => 'spesialis',
             'data_spesialis' => $data_spesialis

@@ -16,12 +16,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Service</a>
-                        </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link active" href="/contact">Contact Us</a>
                         </li>
@@ -40,19 +37,12 @@
         <div class="bg-container">
             <div class="container mt-5">
                 <div class="row row-banner d-flex align-items-center">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="col-lg-12 mt-5">
-                            <h2>Contact Us</h2>
-                            <h5>Feel free to contact us any time</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mt-9">
-                        <div class="mini-logo mt-5">
-                            <img src="/img/collage-icon1.png" alt="">
+                    <div class="col-lg-12 mt-9">
+                        <div class="mini-logo mt-5 d-flex justify-content-center">
                             <h6 class="d-inline-block mb-3 ms-3">Patient is Priority</h6>
                         </div>
-                        <h2>Live a Healthier life <br> With Medicare</h2>        
-                        <p class="mt-5">
+                        <h2 class="text-center">Live a Healthier life <br> With Medicare</h2>        
+                        <p class="mt-5 text-center">
                             MediCare is a hospital that provides the best service to improve your life. MediCare service are here so you can have fun with someone you care about
                         </p>
                     </div>
@@ -100,7 +90,7 @@
                                         <input type="text" name="message" id="message" required>
                                     </div>
                                     <div class="btn-container mt-5">
-                                        <button type="send" name="send">Send Massage</button>
+                                        <button type="send" name="send">Send Message</button>
                                     </div>
                                 </form>
                             </div>

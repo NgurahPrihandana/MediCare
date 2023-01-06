@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -70,11 +71,8 @@
                   aria-labelledby="navbarDropdownMenuLink2"
                 >
                   <div class="nav-user-info">
-                    <h5 class="mb-0 text-white nav-user-name">John Abraham</h5>
+                    <h5 class="mb-0 text-white nav-user-name">{{session()->get('uName')}}</h5>
                   </div>
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-wrench mr-2"></i>Setting</a
-                  >
                   <a class="dropdown-item" href="/logout"
                     ><i class="fas fa-power-off mr-2"></i>Logout</a
                   >
@@ -141,9 +139,9 @@
                 <li class="nav-divider">Features</li>
                 <li class="nav-item">
                   <a
-                    class="nav-link {{ $active === 'daftar-registrasi' ? 'active' : '' }}"
-                    href="{{url('/user/daftar')}}"
-                    ><i class="fas fa-fw fa-inbox"></i> Daftar Registrasi
+                    class="nav-link {{ $active === 'registrasi' ? 'active' : '' }}"
+                    href="{{url('/user/registrasi')}}"
+                    ><i class="fas fa-fw fa-inbox"></i> Registrasi Saya
                   </a>
                 </li>
               </ul>
@@ -195,6 +193,7 @@
     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <!-- main js -->
     <script src="/assets/libs/js/main-js.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- morris-chart js -->
     {{-- <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
     <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>

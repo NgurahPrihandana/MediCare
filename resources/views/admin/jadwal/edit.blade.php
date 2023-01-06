@@ -17,6 +17,10 @@
               <label for="hari" class="form-label">Hari</label>
               <input type="text" name="hari" value="{{$data_jadwal->hari}}" class="form-control" id="hari" autofocus aria-describedby="emailHelp">
             </div>
+            <div class="mb-3">
+                <label for="nama_spesialis" class="form-label">IndexOfDays (0-6) | (Minggu - Sabtu)</label>
+                <input type="number" value="{{$data_jadwal->indexOfDays}}" name="hari" class="form-control" id="indexOfDays" aria-describedby="emailHelp">
+              </div>
             <a href="{{url('/admin/jadwal')}}" class="btn btn-success">Back</a>
             <a onclick="edit({{$id_jadwal}})" href="javascript:void(0)" class="btn btn-primary">Edit Data</a>
           </form>
@@ -59,7 +63,8 @@
 
             data:{
                 _token:"{{csrf_token()}}",
-                hari:$("#hari").val()
+                hari:$("#hari").val(),
+                indexOfDays:$("#indexOfDays").val()
             },
             success:function(response) {
                 Swal.fire(

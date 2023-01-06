@@ -48,7 +48,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Spesialis</th>
-                                            <th>Jumlah Dokter</th>
                                             <th>Jumlah Praktik</th>
                                             <th>Action</th>
                                         </tr>
@@ -59,10 +58,9 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{$item->nama_spesialis}}</td>
-                                            <td>{{$item->count_doctor}}</td>
                                             <td>{{$item->count_praktik}}</td>
                                             <td>
-                                                <a href="{{url('/user/spesialis/')}}/{{$item->id_spesialis}}" class="btn btn-success btn-icon-split">
+                                                <a href="{{url('/user/spesialis/')}}/{{$item->id_spesialis}}" class="btn btn-primary btn-icon-split">
                                                 <span class="text">Detail</span>
                                                 </a>
                                             </td>
@@ -74,7 +72,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Spesialis</th>
-                                            <th>Jumlah Dokter</th>
                                             <th>Jumlah Praktik</th>
                                             <th>Action</th>
                                         </tr>

@@ -139,7 +139,7 @@ h6 {font-size: 0.938rem;font-weight: 600;}
 
 /* Contact Us Page */
 
-.contact form input {
+.index form input {
     display: block;
     border: none;
     letter-spacing: .5px;
@@ -149,7 +149,7 @@ h6 {font-size: 0.938rem;font-weight: 600;}
     padding: 5px;
 }
 
-.contact form button {
+.index form button {
     padding: .5rem 5rem;
     background-color: transparent;
     color: #FF553C;
@@ -157,13 +157,13 @@ h6 {font-size: 0.938rem;font-weight: 600;}
     border: 1px solid #FF553C;
 }
 
-.contact form input:focus {
+.index form input:focus {
     outline: none;
     border-bottom: 1px solid #3D6DEF;
     transition: .4s;
 }
 
-.contact .btn-container {
+.index .btn-container {
     display: flex;
     justify-content: flex-end;
 }

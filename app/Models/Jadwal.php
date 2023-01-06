@@ -10,7 +10,8 @@ class Jadwal extends Model
     use HasFactory;
 
     protected $fillable = [
-        'hari'
+        'hari',
+        'indexOfDays'
     ];
 
     protected $table = 'tb_jadwal';

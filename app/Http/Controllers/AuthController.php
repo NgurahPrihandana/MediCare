@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,9 +36,11 @@ class AuthController extends Controller
             $details = Auth::guard('user')->user();
             if($details->role == "admin") {
                 session()->put('id', $details->id);
+                session()->put('uName', $details->username);
                 return redirect()->intended('admin');
             } else if($details->role == "user") {
                 session()->put('id', $details->id);
+                session()->put('uName', $details->username);
                 return redirect()->intended('user');
             }
             return $details;
@@ -48,7 +51,6 @@ class AuthController extends Controller
                 return redirect()->intended('doctor');
                 return $details;
             } else {
-                // dd('sa');
                 session()->flash('status', 'Task was successful!');
                 return;
             }

@@ -17,7 +17,7 @@ class PraktikController extends Controller
         ->get();
 
         return view('user.praktik.index', [
-            'active' => 'praktik',
+            'active' => 'booking',
             'data_praktik' => $data_praktik
         ]);
     }
@@ -60,6 +60,7 @@ class PraktikController extends Controller
         ->join('tb_spesialis', 'tb_doctors.id_spesialis', '=', 'tb_spesialis.id_spesialis')
         ->where('tb_praktik.id_praktik', '=', $id)
         ->first();
+        
         return view('admin.praktik.edit', [
             'active' => 'praktik',
             'data_jadwal' => $data_jadwal,

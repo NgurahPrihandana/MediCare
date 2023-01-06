@@ -11,10 +11,11 @@ class Registrasi extends Model
         'id_user',
         'id_praktik',
         'nama_lengkap',
-        'tangal_lahir',
+        'tanggal_lahir',
         'jenis_kelamin',
         'keluhan',
-        'tanggal_booking'
+        'tanggal_booking',
+        'tanggal_kedatangan'
     ];
 
     use HasFactory;

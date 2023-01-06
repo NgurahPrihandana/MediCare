@@ -21,7 +21,8 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin',['L','P']);
             $table->longText('keluhan');
-            $table->dateTime('tanggal_booking');
+            $table->timestamp('tanggal_booking');
+            $table->date('tanggal_kedatangan');
             $table->timestamps();
         });
 

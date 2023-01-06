@@ -82,7 +82,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="nama_spesialis" class="form-label">IndexOfDays (0-6) | (Minggu - Sabtu)</label>
-                  <input type="text" name="hari" class="form-control" id="indexOfDays" aria-describedby="emailHelp">
+                  <input type="number" name="hari" class="form-control" id="indexOfDays" aria-describedby="emailHelp">
                 </div>
             </div>
             <div class="modal-footer">
@@ -188,7 +188,8 @@
 
             data:{
                 _token:"{{csrf_token()}}",
-                hari:$("#hari").val()
+                hari:$("#hari").val(),
+                indexOfDays:$("#indexOfDays").val()
             },
             success:function(response) {
                 Swal.fire(
